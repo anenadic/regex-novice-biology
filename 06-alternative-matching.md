@@ -18,7 +18,7 @@ exercises: 0
 
 So far, we've seen how to perform very specific matching - literal string matching, using wildcards to match the same thing multiple times, etc - and how to match every substring that fits a particular pattern - e.g. all strings of at least six digits, every line starting or ending with a particular character, etc - but what if we only want to match under a limited number of set circumstances? For an example,consider again the FASTA file introduced in the previous chapter, a sample of which is reproduced below:
 
-```source 
+```text
 >GX3597KLM "Homo sapiens"
 MQSYASAMLSVFNSDDYSPAVQENIPALRRSSSFLCTESCNSKYQCETGENSKGNVQDRVKRPMNAFIVW
 SRDQRRKMALENPRMRNSEISKQLGYQWKMLTEAEKWPFFQEAQKLQAMHREKYPNYKYRPRRKAKMLPK
@@ -61,13 +61,13 @@ This FASTA file is *huge* - containing many tens of thousands of sequences. We w
 
 A set of options for matching in a regex can be defined using the `|`   pipe symbol. For example, to match either 'fish' or 'whale', we can construct the following expression:
 
-```source 
+```text
 fish|whale
 ```
 
 So, to match only 'Homo sapiens' or 'Pan troglodytes' in the FASTA file mentioned above, we can construct the regex:
 
-```source 
+```text
 Homo sapiens|Pan troglodytes
 ```
 
@@ -86,11 +86,11 @@ Can you find all the lines containing information on a person living on 1st/Firs
 
 Here are two possible solutions:
 
-```source 
+```text
 [Ff]irst [Ss]treet|1st [Ss]treet
 ```
 
-```source 
+```text
 (Fir|fir|1)st [Ss]treet
 ```
 
@@ -100,11 +100,11 @@ Here are two possible solutions:
 
 ::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 6.2
+## Exercise 6.2a
 
 The FASTQ file `example.fastq` contains sequence reads with quality scores, in the format
 
-```source 
+```text
 @sequence header line with barcode sequence
 sequence
 +
@@ -113,7 +113,7 @@ quality scores for basecalls
 
 Unfortunately, the barcode sequences in the header lines are wrong, and the barcodes are still attached to the front of the sequences. There are three barcodes that we are interested in: AGGCCA, TGTGAC, and GCTGAC.
 
-a) how many reads are there in the file for each of these barcodes?
+How many reads are there in the file for each of these barcodes?
 
 ::::::::::::::  solution
 
@@ -124,41 +124,58 @@ AGGCCA: 25
 TGTGAC: 29
 
 GCTGAC: 19
-
+:::::::::::::::::
 
 :::::::::::::::::::::::::
 
-b) write a regular expression that will find and these barcodes and a replacement string that will remove from the start of the sequences in which they are found
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 6.2b
+
+Write a regular expression that will find and these barcodes and a replacement string that will remove from the start of the sequences in which they are found
 
 ::::::::::::::  solution
 
 ## Solution
 
 regex: `^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)`
+
 replacement string: `\2` (`$2`)
 
 
 :::::::::::::::::::::::::
 
-c) of course, the format of the file means that you should probably remove the quality scores associated with those sequence positions too. Rewrite your regex so that the barcode sequence AND its corresponding quality scores (i.e. the first six characters on the sequence and quality lines) are removed.
+::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 6.2c
+
+Of course, the format of the file means that you should probably remove the quality scores associated with those sequence positions too. Rewrite your regex so that the barcode sequence AND its corresponding quality scores (i.e. the first six characters on the sequence and quality lines) are removed.
 
 ::::::::::::::  solution
 
 ## Solution
 
 regex: `^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}`
+
 replacement string: `\2` (`$2`)
 
-
+::::::::::::::
 :::::::::::::::::::::::::
 
-d) finally, can you build on the regex and replacement string from part c), to replace the incorrect index sequences in the header lines with the barcodes for each relevant sequence record?
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 6.2d
+
+Finally, can you build on the regex and replacement string from part c), to replace the incorrect index sequences in the header lines with the barcodes for each relevant sequence record?
 
 ::::::::::::::  solution
 
 ## Solution
 
 regex: `^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}`
+
 replacement string: `\1\2\n\3`
 
 
