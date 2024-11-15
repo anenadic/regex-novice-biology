@@ -469,12 +469,12 @@ Using the following regex:</p>
 <pre class="text"><code>"\1", "\2", "\3"
 
 # returns "group_1", "group_2", "group_3"</code></pre>
-<div id="a-note-about-capture-group-references" class="callout">
+<div id="a-note-about-capturing-group-references" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="a-note-about-capture-group-references" class="callout-inner">
-<h3 class="callout-title">A Note About Capture Group References</h3>
+<div id="a-note-about-capturing-group-references" class="callout-inner">
+<h3 class="callout-title">A Note About Capturing Group References</h3>
 <div class="callout-content">
 <p>Here we are using the <code>\1</code>, <code>\2</code> notation for
 referencing captured groups, but you will often see <code>$1</code>,
@@ -543,7 +543,7 @@ capture group to add them.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Use the regex <code>^(ENSP\d.+)</code> and substitute with
 <code>&gt;\1</code>.</p>
@@ -582,7 +582,7 @@ should look like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the regex <code>Pictures\/(France-2015)\/</code> and substitute
 with <code>shared/vacation-pics/\1-</code>.</p>
