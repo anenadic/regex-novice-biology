@@ -20,7 +20,7 @@ carpentry: 'incubator'
 title: 'Regular Expressions for Biologists'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 
+created: 2020-05-25 
 
 # Comma-separated list of keywords for the lesson
 keywords: 'software, data, lesson, The Carpentries'
@@ -88,6 +88,3 @@ profiles:
 
 
 carpentry_description: Lesson Description
-url: 'https://carpentries-incubator.github.io/regex-novice-biology'
-analytics: carpentries
-lang: en
