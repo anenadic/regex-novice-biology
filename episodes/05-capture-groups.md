@@ -117,7 +117,7 @@ or, to wrap each group in quotation marks:
 
 ::: callout
 
-## A Note About Capture Group References
+## A Note About Capturing Group References
 
 Here we are using the `\1`, `\2`  notation for referencing
 captured groups, but you will often see `$1`, `$2` etc used instead.
