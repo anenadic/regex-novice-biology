@@ -28,7 +28,13 @@
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/aio.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/images.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/index.html</loc>
@@ -61,10 +67,22 @@
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/profiles.html</loc>
@@ -74,6 +92,12 @@
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor/resources.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/regex-novice-biology/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/regex-novice-biology/profiles.html</loc>

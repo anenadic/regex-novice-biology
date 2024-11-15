@@ -471,16 +471,16 @@ even emojis._</p>
 </div>
 </div>
 </div>
-<div id="exercise-2.2" class="callout challenge">
+<div id="exercise-2.2a" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-2.2" class="callout-inner">
-<h3 class="callout-title">Exercise 2.2</h3>
+<div id="exercise-2.2a" class="callout-inner">
+<h3 class="callout-title">Exercise 2.2a</h3>
 <div class="callout-content">
-<ol style="list-style-type: lower-alpha"><li>In total, how many lines mention HDAC 1-5 in
-<code>example.gff</code>?</li>
-</ol></div>
+<p>In total, how many lines mention HDAC 1-5 in
+<code>example.gff</code>?</p>
+</div>
 </div>
 </div>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
@@ -495,40 +495,65 @@ even emojis._</p>
 </div>
 </div>
 </div>
-<div id="exercise-2.2" class="callout discussion">
+<div id="exercise-2.2b" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-2.2" class="callout-inner">
-<h3 class="callout-title">Exercise 2.2<em> (continued)</em>
-</h3>
+<div id="exercise-2.2b" class="callout-inner">
+<h3 class="callout-title">Exercise 2.2b</h3>
 <div class="callout-content">
-<ol start="2" style="list-style-type: lower-alpha"><li>Which of the following expressions could you use to match any
+<p>Which of the following expressions could you use to match any
 four-letter word beginning with an uppercase letter, followed by two
-vowels, and ending with ‘d’?</li>
-</ol><pre class="source"><code>	i) [upper][vowel][vowel]d
+vowels, and ending with ‘d’?</p>
+<pre class="source"><code>	i) [upper][vowel][vowel]d
 
 	ii) [A-Z][a-u][a-u]d
 
 	iii) [A-Z][aeiou][aeiou]d
 
 	iv) [A-Z][aeiou]*2;d</code></pre>
-<blockquote>
-<h2 id="solution-2">Solution</h2>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
 <p>Option iii) fits the description. You might also have chosen option
 ii), which would match the described pattern, but also other non-vowel
 letters in the middle two positions.</p>
-</blockquote>
-<ol start="3" style="list-style-type: lower-alpha"><li>Try playing around with the character ranges that you have learned
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-2.2c" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-2.2c" class="callout-inner">
+<h3 class="callout-title">Exercise 2.2c</h3>
+<div class="callout-content">
+<p>Try playing around with the character ranges that you have learned
 above. What does <code>[A-z]</code> evaluate to? What about
 <code>[a-Z]</code>? Can you create a range that covers all letter and
-number characters?</li>
-</ol><blockquote>
-<h2 id="solution-3">Solution</h2>
+number characters?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
 <p><code>[A-z]</code> matches all letter characters (both upper and
 lower case). <code>[a-Z]</code> is an invalid set. <code>[A-9]</code>
 will match any letter or digit character.</p>
-</blockquote>
+</div>
 </div>
 </div>
 </div>
@@ -573,12 +598,12 @@ with autosomes can you find in file <code>example.gff</code>?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <pre class="source"><code>chr[^XYM]</code></pre>
 <p>There are 897 records matching this regular expression. In fact,

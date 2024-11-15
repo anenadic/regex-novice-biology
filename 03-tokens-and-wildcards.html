@@ -345,9 +345,8 @@
 <hr class="half-width"><p>In the introductory example we introduced the <code>\d</code> token,
 used to represent any single digit. In this regard, the two regular
 expressions below are equivalent.</p>
-<pre><code>[0-9]
+<pre class="text"><code>[0-9]
 \d</code></pre>
-<p>{: .source }</p>
 <div class="section level3">
 <h3 id="tokens-and-the-backslash">Tokens and the Backslash<a class="anchor" aria-label="anchor" href="#tokens-and-the-backslash"></a></h3>
 <p>Tokens in general are shorter form ways of describing standard,
@@ -401,24 +400,37 @@ in later sections.</p>
 can specify that you want to match a literal backslash, by preceding
 that backslash character with - you guessed it! - a backslash i.e. with
 <code>\\</code>.</p>
-<blockquote>
-<h2 id="exercise-3.1">Exercise 3.1</h2>
+<div id="exercise-3.1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.1" class="callout-inner">
+<h3 class="callout-title">Exercise 3.1</h3>
+<div class="callout-content">
 <p>Match dates of the form 31.01.2017 (DAY.MONTH.YEAR) in the example
 file <code>person_info.csv</code>. Pay attention to not wrongly match
 phone numbers. How many matches do you find?</p>
-<blockquote>
-<h2 id="solution">Solution</h2>
-<pre><code>\d\d\.\d\d\.\d\d\d\d</code></pre>
-<p>{: .source }</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<pre class="text"><code>\d\d\.\d\d\.\d\d\d\d</code></pre>
 <p>There are 25 matches in the file <code>person_info.csv</code> (every
 even record).</p>
 <p>Note that the solution above will also match strings like
 131.01.20171 or 99.99.9999. If you really need to avoid matches like
 that, you will need to construct a more specific regex, e.g. one based
-on the ranges of years you expect to find in your date mateches. {:
-.solution } {: .challenge }</p>
-</blockquote>
-</blockquote>
+on the ranges of years you expect to find in your date mateches.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="word-boundaries">Word Boundaries<a class="anchor" aria-label="anchor" href="#word-boundaries"></a></h2>
 <hr class="half-width"><p>The <code>\d</code>, <code>\w</code>, and <code>\s</code> tokens each
