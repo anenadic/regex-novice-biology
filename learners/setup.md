@@ -15,15 +15,16 @@ here are a few recommendations:
 
 - For Windows,
   try the freely-available editor 'Notepad++',
-  available at [https://notepad-plus-plus.org](https://notepad-plus-plus.org).
+  available at <https://notepad-plus-plus.org>.
 - For Mac, TextWrangler is a good generic text editor,
-  available free from [http://www.barebones.com/products/TextWrangler/](http://www.barebones.com/products/TextWrangler/) or the App Store.
+  available free from [http://www.barebones.com/products/TextWrangler/](https://www.barebones.com/products/TextWrangler/) or the App Store.
 - Sublime Text is another good option,
-  available on all operating systems from [https://www.sublimetext.com](https://www.sublimetext.com).
+  available on all operating systems from <https://www.sublimetext.com>.
 
 ## Exercise Files
 
-Download a ZIP of all of the exercise files [here](http://bit.ly/2nqtWc4).
+Download a ZIP of all of the exercise files [here](https://bit.ly/2nqtWc4).
 
 
-{% include links.md %}
+
+

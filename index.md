@@ -1,7 +1,6 @@
 ---
-layout: lesson
-root: .  # Is the only page that doesn't follow the pattern /:path/index.html
-permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+permalink: index.html
+site: sandpaper::sandpaper_site
 ---
 
 Do you often work with lots of data files on the computer?
@@ -28,16 +27,22 @@ The background of the authors is represented in many of the examples chosen,
 which often focus on biological contexts and file formats.
 
 For a comprehensive overview of regular expressions, we highly recommend the excellent
-[regular-expressions.info](http://www.regular-expressions.info/).
+[regular-expressions.info](https://www.regular-expressions.info/).
 
-> ## Prerequisites
->
-> To follow this lesson, learners should know how to open a text file on their computer,
-> and some familiarity with the _Find/Replace_ functionality
-> available in most text editing tools will be beneficial.
-> The examples used will feel most relevant to those who are familiar with common file formats
-> used to represent biological data, and some knowledge of sequence biology
-> (DNA/RNA and protein sequences) is assumed.
-{: .prereq}
+::::::::::::::::::::::::::::::::::::::::::  prereq
 
-{% include links.md %}
+## Prerequisites
+
+To follow this lesson, learners should know how to open a text file on their computer,
+and some familiarity with the *Find/Replace* functionality
+available in most text editing tools will be beneficial.
+The examples used will feel most relevant to those who are familiar with common file formats
+used to represent biological data, and some knowledge of sequence biology
+(DNA/RNA and protein sequences) is assumed.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+

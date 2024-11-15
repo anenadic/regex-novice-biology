@@ -1,19 +1,23 @@
 ---
-title: "Introduction"
+title: Introduction
 teaching: 0
 exercises: 0
-questions:
-- "What is a regular expression?"
-- "In what programs can I use regular expessions?"
-objectives:
-- "Explain that regular expressions are a way of describing patterns in text."
-- "Describe circumstances where a regular expression search could be helpful."
-- "Access the regular expression search function of a text editor."
-keypoints:
-- "Regular expressions are a way of describing patterns in text."
-- "Most text editors and many other tools include a regular expression engine for performing these kinds of searches."
-- "Regular expressions are often offered as a mode of find/replace that can be turned on and off by the user."
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Explain that regular expressions are a way of describing patterns in text.
+- Describe circumstances where a regular expression search could be helpful.
+- Access the regular expression search function of a text editor.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What is a regular expression?
+- In what programs can I use regular expessions?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## What is a regular expression?
 
@@ -62,7 +66,6 @@ which you can use to find the phone number -
 and nothing else -
 wherever it is in the document.
 
-
 ## Regular Expression Engines
 
 In order to perform a regex search,
@@ -74,14 +77,13 @@ However, the core rules, which are covered in this lesson and
 will probably address 99.9% of your text-searching needs,
 are effectively common to all of them.
 
-
 ## How can I use Regular Expressions?
 
 ### Text Editors
 
 Most text editors include a regular expression engine
 to provide regex search/replace functionality.
-See [the Setup page](setup) for suggested text editors to
+See [the Setup page](../learners/setup.md) for suggested text editors to
 use on different operating systems when following this lesson.
 
 Usually, you will need to specify that you want to
@@ -99,4 +101,14 @@ that use regular expressions,
 for searching (e.g. `grep`/`egrep`)
 and replacement/substitution (e.g. `sed`, `awk`, `perl -e`).
 
-{% include links.md %}
+
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Regular expressions are a way of describing patterns in text.
+- Most text editors and many other tools include a regular expression engine for performing these kinds of searches.
+- Regular expressions are often offered as a mode of find/replace that can be turned on and off by the user.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
