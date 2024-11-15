@@ -150,9 +150,9 @@ Here, we will discuss only characters that fall inside the ASCII set - a limited
 
 ::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 2.2
+## Exercise 2.2a
 
-a) In total, how many lines mention HDAC 1-5 in `example.gff`?
+In total, how many lines mention HDAC 1-5 in `example.gff`?
 
 :::::::::::::::  solution
 
@@ -161,8 +161,13 @@ a) In total, how many lines mention HDAC 1-5 in `example.gff`?
 82 (using the regex `Name=HDAC[1-5][^0-9]`)
 
 :::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::
 
-b) Which of the following expressions could you use to match any four-letter word beginning with an uppercase letter, followed by two vowels, and ending with 'd'?
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 2.2b
+
+Which of the following expressions could you use to match any four-letter word beginning with an uppercase letter, followed by two vowels, and ending with 'd'?
 
 ```source 
 	i) [upper][vowel][vowel]d
@@ -174,21 +179,34 @@ b) Which of the following expressions could you use to match any four-letter wor
 	iv) [A-Z][aeiou]*2;d
 ```
 
-> ## Solution
-> 
-> Option iii) fits the description.
-> You might also have chosen option ii),
-> which would match the described pattern,
-> but also other non-vowel letters in the middle two positions.
+::: solution
 
-c) Try playing around with the character ranges that you have learned above. What does `[A-z]` evaluate to? What about `[a-Z]`? Can you create a range that covers all letter and number characters?
+## Solution
 
-> ## Solution
-> 
-> `[A-z]` matches all letter characters (both upper and lower case).
-> `[a-Z]` is an invalid set.
-> `[A-9]` will match any letter or digit character.
+Option iii) fits the description.
+You might also have chosen option ii),
+which would match the described pattern,
+but also other non-vowel letters in the middle two positions.
 
+:::
+::::::
+
+
+::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise 2.2c
+
+Try playing around with the character ranges that you have learned above. What does `[A-z]` evaluate to? What about `[a-Z]`? Can you create a range that covers all letter and number characters?
+
+::: solution 
+
+## Solution
+
+`[A-z]` matches all letter characters (both upper and lower case).
+`[a-Z]` is an invalid set.
+`[A-9]` will match any letter or digit character.
+
+:::
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Ranges don't have to include the whole alphabet or every digit - we can match only the second half of the alphabet with

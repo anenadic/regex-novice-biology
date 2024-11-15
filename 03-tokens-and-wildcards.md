@@ -20,11 +20,10 @@ keypoints:
 ## Referencing multiple characters
 In the introductory example we introduced the `\d` token, used to represent any single digit. In this regard, the two regular expressions below are equivalent.
 
-~~~
+```text
 [0-9]
 \d
-~~~
-{: .source }
+```
 
 ### Tokens and the Backslash
 
@@ -44,24 +43,28 @@ Notice that these tokens have a common syntax - a backslash character '\' follow
 
 This even extends so far as to the backslash character itself - you can specify that you want to match a literal backslash, by preceding that backslash character with - you guessed it! - a backslash i.e. with `\\`.
 
-> ## Exercise 3.1
-> Match dates of the form 31.01.2017 (DAY.MONTH.YEAR) in the example file `person_info.csv`. Pay attention to not wrongly match phone numbers. How many matches do you find?
->
-> > ## Solution
-> >
-> > ~~~
-> > \d\d\.\d\d\.\d\d\d\d
-> > ~~~
-> > {: .source }
-> >
-> > There are 25 matches in the file `person_info.csv` (every even record).
-> >
-> > Note that the solution above will also match strings like 131.01.20171 or 99.99.9999.
-> > If you really need to avoid matches like that,
-> > you will need to construct a more specific regex,
-> > e.g. one based on the ranges of years you expect to find in your date mateches.
-> {: .solution }
-{: .challenge }
+:::::: challenge
+
+## Exercise 3.1
+
+Match dates of the form 31.01.2017 (DAY.MONTH.YEAR) in the example file `person_info.csv`. Pay attention to not wrongly match phone numbers. How many matches do you find?
+
+::: solution
+
+## Solution
+
+```text
+\d\d\.\d\d\.\d\d\d\d
+```
+There are 25 matches in the file `person_info.csv` (every even record).
+
+Note that the solution above will also match strings like 131.01.20171 or 99.99.9999.
+If you really need to avoid matches like that,
+you will need to construct a more specific regex,
+e.g. one based on the ranges of years you expect to find in your date mateches.
+
+:::
+::::::
 
 ## Word Boundaries
 
