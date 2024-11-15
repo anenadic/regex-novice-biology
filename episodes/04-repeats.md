@@ -26,21 +26,21 @@ For example, imagine that we are working with a large list of files, a collectio
 
 The symbols `+`, `?`, and `*` can be used to control the number of times that a character or set should be matched in the pattern. The behaviour of each is summarised in the table below.
 
-| Symbol | Behaviour                                     | Example | Matches  | Doesn't Match | 
+| Symbol | Behaviour                                     | Example | Matches  | Doesn't Match |
 | ------ | --------------------------------------------- | ------- | -------- | ------------- |
-| `+`       | Match one or more of preceding character/set  | `AGC+T`        | AGCCCT   | AGT           | 
-| `?`       | Match zero or one of preceding character/set  | `AGC?T`        | AGT      | AGCCT         | 
-| `*`       | Match zero or more of preceding character/set | `AGC*T`        | AGCCCCCT | AGG           | 
+| `+`       | Match one or more of preceding character/set  | `AGC+T`        | AGCCCT   | AGT           |
+| `?`       | Match zero or one of preceding character/set  | `AGC?T`        | AGT      | AGCCT         |
+| `*`       | Match zero or more of preceding character/set | `AGC*T`        | AGCCCCCT | AGG           |
 
 So, `bo?t` will match 'bt' and 'bot' only, `bo+t` will match 'boot', 'bot', 'boooot', and so on, and \`bo\*t' will match 'bt', 'bot', 'boot', 'booot', and so on. These modifiers can also be applied to sets of characters, so the regex
 
-```source 
+```text
 f[aeiou]+nd
 ```
 
 will match 'find', 'found', and 'fiuoaaend'. Note that the whole class can be repeated, and it is not only repeats of the same character that match i.e. the regex
 
-```source 
+```text
 d[efor]*med
 ```
 
@@ -48,69 +48,65 @@ will match 'deformed', as well as 'dmed', 'doomed', and 'doooooooooooomed'. It i
 
 ::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise 4.1
+## Exercise 4.1a
 
-a) Which of the follow strings will be matched by the regular
-expression `MVIA*CP`?
+Which of the follow strings will be matched by the regular
+expression
 
-\`~~~
-i) MVIAACP
-
-ii) MVICP
-
-iii) MVIACP
-
-iv) all of the above
-
-```
-{: .source }
-
-> ## Solution
->
-> __iv)__ the regex will match all of the strings i) - iii)
->
-{: .solution }
-
-b) Write a regular expression to match the string
-
-"ATGCTTTCG"
-
-and
-
-"ATCTCG"
-
-but *not*
-
-"ATGGCCG"
-
-> ## Solution
->
-> ~~~
-> ATG?CT+CG
-> ~~~
-> {: .source }
-> {: .solution }
+```text
+`MVIA*CP`
 ```
 
+?
+
+
+i) "MVIAACP"
+ii) "MVICP"
+iii) "MVIACP"
+iv) all strings above
+
+::: solution
+
+## Solution
+
+ __iv)__ - the regex will match all of the strings i) - iii).
+
+:::
+::::::
+
+:::::: challenge
+
+## Exercise 4.1b
+
+Write a regular expression to match the strings "ATGCTTTCG" and "ATCTCG" but *not* "ATGGCCG".
+
+::: solution
+
+## Solution
+
+```text
+ATG?CT+CG
+```
+:::
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Specifying Repeats
 
 In addition to the modifiers above, which allow the user to specify whether to match, zero, one, or an arbitrary multitude of a character/set, it is also possible to match only a certain number of repeats, or within a certain range of numbers of repeats, using `{}`.
 
-```source 
+```text
 GCA{3}T
 ```
 
 matches 'GCAAAT' only, while
 
-```source 
+```text
 GC[AT]{3}T
 ```
 
 matches 'GCATAT', 'GCTTTT', and 'GCTAAT', but not 'GCTAT', 'GCATT', or 'GCp)T'. As well as an exact number of repeats to match, a range can also be specified with `{n,m}`, where `n` is the minimum and `m` the maximum number of matches allowed in the pattern. So,
 
-```source 
+```text
 AG[ACGT]{4,10}GC
 ```
 
@@ -131,11 +127,11 @@ followed by tyrosine (Y), with an increasing number of leucine (L)
 residues in between. Start by searching for this pattern with three leucines (i.e. 'WLLLY'), then reduce this to two, and one. Is this working as you expect? How would you search for a range of lengths of the leucine repeat? Try searching for any patterns with at between one and four leucines.
 What happens if you leave out the upper limit inside the `{}`? Or the lower limit? Can you leave out both?
 
-:::::::::::::::::::::::::::::::::::::::  soultion
+:::::::::::::::::::::::::::::::::::::::  solution
 
 ## Solution
 
-```source 
+```text
 WL{3}Y
 WL{2}Y
 WL{1}Y
@@ -148,13 +144,13 @@ WL{1,4}Y
 
 Specifying only one of these limits, while retaining the comma in the appropriate position, allows you to control for a only an upper or lower limit to the number of repeats. So,
 
-```source 
+```text
 GC[A]{3,}GC
 ```
 
 matches 'GCAAAGC', 'GCAAAAAAAAGC', and any other string starting and ending with 'GC', with more than two 'A's in between. Conversely,
 
-```source 
+```text
 GCA{,4}GC
 ```
 

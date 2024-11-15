@@ -26,7 +26,7 @@ you can still search for a literal string
 i.e. the exact letter(s)/word(s) that you want to find.
 So, to find the gene name 'HDAC1', you would type:
 
-```source 
+```text
 HDAC1
 ```
 
@@ -43,7 +43,7 @@ sensitivity on and off.
 For example, when using `grep` on the command line,
 the `-i` option activates case insensitivity.
 
-```bash 
+```bash
 grep -i HDAC1 example.gff
 ```
 
@@ -63,13 +63,13 @@ to avoid spurious matches.
 
 To make the search less specific, remove the '1' from the end
 
-```source 
+```text
 HDAC
 ```
 
 Or, to be more specific and avoid any spurious matches:
 
-```source 
+```text
 Name=HDAC
 ```
 
@@ -96,7 +96,7 @@ in a certain position
 by placing them between sqaure brackets `[]`.
 For example,
 
-```source 
+```text
 [bfr]oot
 ```
 
@@ -113,13 +113,13 @@ We will learn more soon about how to avoid these partial matches.
 This approach can be used to match only `HDAC1` and `HDAC2`
 in our example GFF file, with the regex below:
 
-```source 
+```text
 HDAC[12]
 ```
 
 The set of characters specified inside `[]` can be a mix of letters, numbers, and symbols. So,
 
-```source 
+```text
 [&k8Y]
 ```
 
@@ -127,13 +127,13 @@ is a valid set.
 
 What if we want to match any uppercase letter? Applying what we've learned already, we *could* use the set
 
-```source 
+```text
 [ABCDEFGHIJKLMNOPQRSTUVWXYZ]at
 ```
 
 to match any string beginning with an upper case letter, followed by 'at' e.g. 'Cat', 'Bat', 'Mat', etc. But that's a lot of typing (30 characters to match only three in the string), and we can instead specify ranges of characters in `[]` with `-`. So, to match the same strings as before, our regex can instead look like this:
 
-```source 
+```text
 [A-Z]at
 ```
 
@@ -169,7 +169,7 @@ In total, how many lines mention HDAC 1-5 in `example.gff`?
 
 Which of the following expressions could you use to match any four-letter word beginning with an uppercase letter, followed by two vowels, and ending with 'd'?
 
-```source 
+```text
 	i) [upper][vowel][vowel]d
 
 	ii) [A-Z][a-u][a-u]d
@@ -198,7 +198,7 @@ but also other non-vowel letters in the middle two positions.
 
 Try playing around with the character ranges that you have learned above. What does `[A-z]` evaluate to? What about `[a-Z]`? Can you create a range that covers all letter and number characters?
 
-::: solution 
+::: solution
 
 ## Solution
 
@@ -211,25 +211,25 @@ Try playing around with the character ranges that you have learned above. What d
 
 Ranges don't have to include the whole alphabet or every digit - we can match only the second half of the alphabet with
 
-```source 
+```text
 [N-Z]
 ```
 
 and only the numbers from 5 to 8 with
 
-```source 
+```text
 [5-8]
 ```
 
 We can specify multiple ranges together in the same set, so matching 'a', 'b', 'c', 'd', 'e', 'f', or any digit can be done with
 
-```source 
+```text
 [a-f0-9]
 ```
 
 But if we're using the `-` symbol to specify a range of characters, how do we include the literal '-' symbol in a set to be matched? To do this, the `-` should be specified at the start of the set. So
 
-```source 
+```text
 [-A-K]
 ```
 
@@ -239,7 +239,7 @@ will match '-' as well as any uppercase letter between 'A' and 'K'.
 
 The last thing to tell you about sets and ranges (for now), is that we can also specify a set or range of characters to *not* match in a position. This is achieved with the `^` symbol at the beginning of the set.
 
-```source 
+```text
 201[^269]
 ```
 
@@ -255,7 +255,7 @@ Use an inverted set to only match the human autosomes (chr1-22), i.e. filtering 
 
 ## Solution
 
-```source 
+```text
 chr[^XYM]
 ```
 

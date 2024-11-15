@@ -2,20 +2,19 @@
 title: Tokens and Wildcards
 teaching: 0
 exercises: 0
-questions:
-- "How can I specify that patterns should only match as whole words or whole lines?"
-- "How can I only match patterns that appear at the very beginning or very end of a line?"
-- "How can I specify positions in a pattern that could match any character?"
-objectives:
-- "Compose regular expressions that include tokens to match particular classes of character."
-- "Describe the risks associated with using tokens and wildcards that match many characters."
-- "Modify a regular expression to match only strings that appear at the start or end of a line or word."
-keypoints:
-- "Use the `\b` token to match a word boundary, and `^` and `$` to match the beginning and end of a line respectively."
-- "`\\` has special meaning in regular expressions, and `\\\\` should be used to specify a literal backslash in a pattern."
-- "`.` describes a position that could match any character."
-- "When composing a regular expression, it is good practice to be as specific as possible about what you want to match."
 ---
+
+::: questions
+- How can I specify that patterns should only match as whole words or whole lines?
+- How can I only match patterns that appear at the very beginning or very end of a line?
+- How can I specify positions in a pattern that could match any character?
+:::
+
+::: objectives
+- Compose regular expressions that include tokens to match particular classes of character.
+- Describe the risks associated with using tokens and wildcards that match many characters.
+- Modify a regular expression to match only strings that appear at the start or end of a line or word.
+:::
 
 ## Referencing multiple characters
 In the introductory example we introduced the `\d` token, used to represent any single digit. In this regard, the two regular expressions below are equivalent.
@@ -70,46 +69,50 @@ e.g. one based on the ranges of years you expect to find in your date mateches.
 
 The `\d`, `\w`, and `\s` tokens each represent a clearly defined set of characters. The `\b` token is more interesting - it is used to match what is referred to as a 'word boundary', and can be used to ensure matching of whole words only. For example, we want to find every instance of 'chr1' and 'chr2' in the file `example.gff`. Using what we've already learned, we can design the regex
 
-~~~
+```text
 chr[12]
-~~~
-{: .source }
+```
 
 which will match either of the two target strings. However, this regex will also match all but the last character of 'chr13' and 'chr22', which is not what we want. How can we be sure that we will only match the two chromosome identifiers that we want, without additional digits on the end? We could add a space character to the end of the regex. But what if the target string appears at the end of a line? Or before a symbol/delimiter such as ';' or '.'? These strings will be missed by our regex ending with a space.
 
 This is where the `\b` token comes in handy. 'Word boundary' characters include all of the options described above - symbols that might be used as field delimiters, periods and commas, newline characters, plus the special regex characters `^` and `$`, which refer to the beginning and end of a string respectively (more on these in a moment). So, by using the regex
 
-~~~
+```text
 \bchr[12]\b
-~~~
-{: .source }
+```
 
 we ensure that we will only get matches to 'chr1' and 'chr2' as whole words, regardless of whether they are flanked by spaces, symbols, or the beginning or end of a line.
 
-> ## Exercise 3.2
-> How can you refine the regex from the previous exercise to prevent matching strings with preceding or succeeding digits, such as 131.01.20171?
-> >
-> > ## Solution
-> >
-> > ~~~
-> > \b\d\d\.\d\d\.\d\d\d\d\b
-> > ~~~
-> > {: .source }
-> >
-> > Note that this prevents matching strings like 131.01.20171, but still allows non-sensical dates such as 99.99.9999.
-> {: .solution }
-{: .challenge }
+:::::: challenge
 
-> ## Exercise 3.3
-> When designing a regular expression to match exactly four digits, what would be the difference between using the two regular expressions `\b\d\d\d\d\b` and `\D\d\d\d\d\D`?
->
-> > ## Solution
-> >
-> > While both regular expressions will prevent leading and succeeding digits, the regular expression `\D\d\d\d\d\D` won't
-> > work if the four digits appear at the beginning or end of the string. That is because the `\D` tokens MUST
-> > match a character.
-> {: .solution }
-{: .challenge }
+## Exercise 3.2
+How can you refine the regex from the previous exercise to prevent matching strings with preceding or succeeding digits, such as 131.01.20171?
+
+::: solution
+## Solution
+
+```text
+\b\d\d\.\d\d\.\d\d\d\d\b
+```
+
+Note that this prevents matching strings like 131.01.20171, but still allows non-sensical dates such as 99.99.9999.
+:::
+::::::
+
+:::::: challenge
+
+## Exercise 3.3
+When designing a regular expression to match exactly four digits, what would be the difference between using the two regular expressions `\b\d\d\d\d\b` and `\D\d\d\d\d\D`?
+
+::: solution
+
+## Solution
+
+While both regular expressions will prevent leading and succeeding digits, the regular expression `\D\d\d\d\d\D` won't
+work if the four digits appear at the beginning or end of the string. That is because the `\D` tokens MUST
+match a character.
+:::
+::::::
 
 ## The `.` Wildcard
 
@@ -120,23 +123,36 @@ The `^` and `$` symbols are used in a regex to represent the beginning and end o
 
 In the example SAM file, 'example.sam', there are several header lines before the main body of individual alignments. These header lines begin with the '@' symbol, which is also contained within the quality strings and other fields of the alignment lines that make up the bulk of the file. If we search only with `@`, we won't be able to pull out only the header lines, so instead we can use the regex
 
-~~~
+```text
 ^@
-~~~
-{: .source }
+```
 
 to capture only the header lines. A similar approach can also be useful when searching for particular primer/adapter sequences in high-throughput DNA sequencing data.
 
-> ## Exercise 3.4
-> Count how many sequences in `example_protein.fasta` are of transcript_biotype "protein_coding". Hint: sequence records have a header that starts with the character "`>`".
->
-> > ## Solution
-> >
-> > ~~~
-> > ^>.*transcript_biotype:protein_coding
-> > ~~~
-> > {: .source }
-> >
-> > There are 17 matches in the file `example_protein.fasta`. _Note: be careful when using `>` in a regular expression on the command line - the `>` symbol has a special meaning in many command line environments, and using it can result in accidentally wiping the content of files etc._
-> {: .solution }
-{: .challenge }
+:::::: challenge
+
+## Exercise 3.4
+
+Count how many sequences in `example_protein.fasta` are of transcript_biotype "protein_coding". Hint: sequence records have a header that starts with the character "`>`".
+
+::: solution
+
+## Solution
+
+```text
+^>.*transcript_biotype:protein_coding
+```
+
+There are 17 matches in the file `example_protein.fasta`.
+
+_Note: be careful when using `>` in a regular expression on the command line - the `>` symbol has a special meaning in many command line environments, and using it can result in accidentally wiping the content of files etc._
+:::
+::::::
+
+
+::: keypoints
+- Use the `\b` token to match a word boundary, and `^` and `$` to match the beginning and end of a line respectively.
+- `\\` has special meaning in regular expressions, and `\\\\` should be used to specify a literal backslash in a pattern.
+- `.` describes a position that could match any character.
+- When composing a regular expression, it is good practice to be as specific as possible about what you want to match.
+:::
