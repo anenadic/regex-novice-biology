@@ -410,56 +410,68 @@ below.</p>
 <code>bo+t</code> will match ‘boot’, ‘bot’, ‘boooot’, and so on, and
 `bo*t’ will match ‘bt’, ‘bot’, ‘boot’, ‘booot’, and so on. These
 modifiers can also be applied to sets of characters, so the regex</p>
-<pre class="source"><code><span><span class="va">f</span><span class="op">[</span><span class="va">aeiou</span><span class="op">]</span><span class="op">+</span><span class="va">nd</span></span></code></pre>
+<pre class="text"><code><span><span class="va">f</span><span class="op">[</span><span class="va">aeiou</span><span class="op">]</span><span class="op">+</span><span class="va">nd</span></span></code></pre>
 <p>will match ‘find’, ‘found’, and ‘fiuoaaend’. Note that the whole
 class can be repeated, and it is not only repeats of the same character
 that match i.e. the regex</p>
-<pre class="source"><code><span><span class="va">d</span><span class="op">[</span><span class="va">efor</span><span class="op">]</span><span class="op">*</span><span class="va">med</span></span></code></pre>
+<pre class="text"><code><span><span class="va">d</span><span class="op">[</span><span class="va">efor</span><span class="op">]</span><span class="op">*</span><span class="va">med</span></span></code></pre>
 <p>will match ‘deformed’, as well as ‘dmed’, ‘doomed’, and
 ‘doooooooooooomed’. It is also important to be aware that the modifiers
 are ‘greedy’, which means that the regex engine will match as many
 characters as possible before moving on to the next character of the
 pattern.</p>
-<div id="exercise-4.1" class="callout discussion">
+<div id="exercise-4.1a" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-4.1" class="callout-inner">
-<h3 class="callout-title">Exercise 4.1</h3>
+<div id="exercise-4.1a" class="callout-inner">
+<h3 class="callout-title">Exercise 4.1a</h3>
 <div class="callout-content">
-<ol style="list-style-type: lower-alpha"><li>Which of the follow strings will be matched by the regular
-expression <code>MVIA*CP</code>?</li>
-</ol><p>`~~~ i) MVIAACP</p>
-<ol start="2" style="list-style-type: lower-roman"><li><p>MVICP</p></li>
-<li><p>MVIACP</p></li>
-<li><p>all of the above</p></li>
-</ol><pre><code>{: .source }
-
-&gt; ## Solution
-&gt;
-&gt; __iv)__ the regex will match all of the strings i) - iii)
-&gt;
-{: .solution }
-
-b) Write a regular expression to match the string
-
-"ATGCTTTCG"
-
-and
-
-"ATCTCG"
-
-but *not*
-
-"ATGGCCG"
-
-&gt; ## Solution
-&gt;
-&gt; ~~~
-&gt; ATG?CT+CG
-&gt; ~~~
-&gt; {: .source }
-&gt; {: .solution }</code></pre>
+<p>Which of the follow strings will be matched by the regular
+expression</p>
+<pre class="text"><code><span><span class="va">`MVIA*CP`</span></span></code></pre>
+<p>?</p>
+<ol style="list-style-type: lower-roman"><li>“MVIAACP”</li>
+<li>“MVICP”</li>
+<li>“MVIACP”</li>
+<li>all strings above</li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p><strong>iv)</strong> - the regex will match all of the strings i) -
+iii).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-4.1b" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-4.1b" class="callout-inner">
+<h3 class="callout-title">Exercise 4.1b</h3>
+<div class="callout-content">
+<p>Write a regular expression to match the strings “ATGCTTTCG” and
+“ATCTCG” but <em>not</em> “ATGGCCG”.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<pre class="text"><code><span><span class="va">ATG</span><span class="op">?</span><span class="va">CT</span><span class="op">+</span><span class="va">CG</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -469,15 +481,15 @@ whether to match, zero, one, or an arbitrary multitude of a
 character/set, it is also possible to match only a certain number of
 repeats, or within a certain range of numbers of repeats, using
 <code>{}</code>.</p>
-<pre class="source"><code>GCA{3}T</code></pre>
+<pre class="text"><code>GCA{3}T</code></pre>
 <p>matches ‘GCAAAT’ only, while</p>
-<pre class="source"><code>GC[AT]{3}T</code></pre>
+<pre class="text"><code>GC[AT]{3}T</code></pre>
 <p>matches ‘GCATAT’, ‘GCTTTT’, and ‘GCTAAT’, but not ‘GCTAT’, ‘GCATT’,
 or ‘GCp)T’. As well as an exact number of repeats to match, a range can
 also be specified with <code>{n,m}</code>, where <code>n</code> is the
 minimum and <code>m</code> the maximum number of matches allowed in the
 pattern. So,</p>
-<pre class="source"><code>AG[ACGT]{4,10}GC</code></pre>
+<pre class="text"><code>AG[ACGT]{4,10}GC</code></pre>
 <p>matches any sequence between four and ten nucleotides, flanked by
 ‘AG’ on one side and ‘GC’ on the other.</p>
 </section><section><h2 class="section-heading" id="grouping">Grouping<a class="anchor" aria-label="anchor" href="#grouping"></a></h2>
@@ -492,9 +504,9 @@ of characters/sets, wrap the group in <code>()</code> parentheses.</p>
 match ‘rain’ and ‘rainrain’ with the regex <code>(rain)+</code>. This
 kind of grouping with <code>()</code> is used in a few different ways,
 as we will discover in the next couple of chapters.</p>
-<div id="exercise-4.2" class="callout discussion">
+<div id="exercise-4.2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-4.2" class="callout-inner">
 <h3 class="callout-title">Exercise 4.2</h3>
@@ -508,9 +520,17 @@ of the leucine repeat? Try searching for any patterns with at between
 one and four leucines. What happens if you leave out the upper limit
 inside the <code>{}</code>? Or the lower limit? Can you leave out
 both?</p>
-<div class="section level2 soultion">
-<h2 id="solution">Solution<a class="anchor" aria-label="anchor" href="#solution"></a></h2>
-<pre class="source"><code>WL{3}Y
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<pre class="text"><code>WL{3}Y
 WL{2}Y
 WL{1}Y
 WL{1,4}Y</code></pre>
@@ -521,10 +541,10 @@ WL{1,4}Y</code></pre>
 <p>Specifying only one of these limits, while retaining the comma in the
 appropriate position, allows you to control for a only an upper or lower
 limit to the number of repeats. So,</p>
-<pre class="source"><code>GC[A]{3,}GC</code></pre>
+<pre class="text"><code>GC[A]{3,}GC</code></pre>
 <p>matches ‘GCAAAGC’, ‘GCAAAAAAAAGC’, and any other string starting and
 ending with ‘GC’, with more than two ’A’s in between. Conversely,</p>
-<pre class="source"><code>GCA{,4}GC</code></pre>
+<pre class="text"><code>GCA{,4}GC</code></pre>
 <p>matches ‘GCGC’, ‘GCAGC’, ‘GCAAGC’, and so on, but won’t match
 ‘GCAAAAAAGC’ or any other combination containing a run of more than four
 ‘A’s between flanking ’GC’ substrings. This syntax, where the minimum

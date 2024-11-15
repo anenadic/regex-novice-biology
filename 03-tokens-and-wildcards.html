@@ -341,6 +341,37 @@
 
         
 
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul><li>How can I specify that patterns should only match as whole words or
+whole lines?</li>
+<li>How can I only match patterns that appear at the very beginning or
+very end of a line?</li>
+<li>How can I specify positions in a pattern that could match any
+character?</li>
+</ul></div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul><li>Compose regular expressions that include tokens to match particular
+classes of character.</li>
+<li>Describe the risks associated with using tokens and wildcards that
+match many characters.</li>
+<li>Modify a regular expression to match only strings that appear at the
+start or end of a line or word.</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="referencing-multiple-characters">Referencing multiple characters<a class="anchor" aria-label="anchor" href="#referencing-multiple-characters"></a></h2>
 <hr class="half-width"><p>In the introductory example we introduced the <code>\d</code> token,
 used to represent any single digit. In this regard, the two regular
@@ -418,7 +449,7 @@ phone numbers. How many matches do you find?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre class="text"><code>\d\d\.\d\d\.\d\d\d\d</code></pre>
 <p>There are 25 matches in the file <code>person_info.csv</code> (every
@@ -440,8 +471,7 @@ boundary’, and can be used to ensure matching of whole words only. For
 example, we want to find every instance of ‘chr1’ and ‘chr2’ in the file
 <code>example.gff</code>. Using what we’ve already learned, we can
 design the regex</p>
-<pre><code><span><span class="va">chr</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
-<p>{: .source }</p>
+<pre class="text"><code><span><span class="va">chr</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
 <p>which will match either of the two target strings. However, this
 regex will also match all but the last character of ‘chr13’ and ‘chr22’,
 which is not what we want. How can we be sure that we will only match
@@ -456,34 +486,65 @@ symbols that might be used as field delimiters, periods and commas,
 newline characters, plus the special regex characters <code>^</code> and
 <code>$</code>, which refer to the beginning and end of a string
 respectively (more on these in a moment). So, by using the regex</p>
-<pre><code>\bchr[12]\b</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>\bchr[12]\b</code></pre>
 <p>we ensure that we will only get matches to ‘chr1’ and ‘chr2’ as whole
 words, regardless of whether they are flanked by spaces, symbols, or the
 beginning or end of a line.</p>
-<blockquote>
-<h2 id="exercise-3.2">Exercise 3.2</h2>
+<div id="exercise-3.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.2" class="callout-inner">
+<h3 class="callout-title">Exercise 3.2</h3>
+<div class="callout-content">
 <p>How can you refine the regex from the previous exercise to prevent
 matching strings with preceding or succeeding digits, such as
-131.01.20171? &gt; &gt; ## Solution &gt; &gt; ~~~ &gt; ~~~ &gt; {:
-.source } &gt; &gt; Note that this prevents matching strings like
-131.01.20171, but still allows non-sensical dates such as 99.99.9999. {:
-.solution } {: .challenge }</p>
-</blockquote>
-<blockquote>
-<h2 id="exercise-3.3">Exercise 3.3</h2>
+131.01.20171?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<pre class="text"><code>\b\d\d\.\d\d\.\d\d\d\d\b</code></pre>
+<p>Note that this prevents matching strings like 131.01.20171, but still
+allows non-sensical dates such as 99.99.9999.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-3.3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.3" class="callout-inner">
+<h3 class="callout-title">Exercise 3.3</h3>
+<div class="callout-content">
 <p>When designing a regular expression to match exactly four digits,
 what would be the difference between using the two regular expressions
 <code>\b\d\d\d\d\b</code> and <code>\D\d\d\d\d\D</code>?</p>
-<blockquote>
-<h2 id="solution-1">Solution</h2>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
 <p>While both regular expressions will prevent leading and succeeding
 digits, the regular expression <code>\D\d\d\d\d\D</code> won’t work if
 the four digits appear at the beginning or end of the string. That is
-because the <code>\D</code> tokens MUST match a character. {: .solution
-} {: .challenge }</p>
-</blockquote>
-</blockquote>
+because the <code>\D</code> tokens MUST match a character.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="the---wildcard">The <code>.</code> Wildcard<a class="anchor" aria-label="anchor" href="#the---wildcard"></a></h2>
 <hr class="half-width"><p>As well as the set tokens described above, there is also the more
 general wildcard <code>.</code>, which can be used to match any single
@@ -506,28 +567,63 @@ begin with the ‘@’ symbol, which is also contained within the quality
 strings and other fields of the alignment lines that make up the bulk of
 the file. If we search only with <code>@</code>, we won’t be able to
 pull out only the header lines, so instead we can use the regex</p>
-<pre><code>^@</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>^@</code></pre>
 <p>to capture only the header lines. A similar approach can also be
 useful when searching for particular primer/adapter sequences in
 high-throughput DNA sequencing data.</p>
-<blockquote>
-<h2 id="exercise-3.4">Exercise 3.4</h2>
+<div id="exercise-3.4" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.4" class="callout-inner">
+<h3 class="callout-title">Exercise 3.4</h3>
+<div class="callout-content">
 <p>Count how many sequences in <code>example_protein.fasta</code> are of
 transcript_biotype “protein_coding”. Hint: sequence records have a
 header that starts with the character “<code>&gt;</code>”.</p>
-<blockquote>
-<h2 id="solution-2">Solution</h2>
-<pre><code>^&gt;.*transcript_biotype:protein_coding</code></pre>
-<p>{: .source }</p>
-<p>There are 17 matches in the file <code>example_protein.fasta</code>.
-<em>Note: be careful when using <code>&gt;</code> in a regular
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<pre class="text"><code>^&gt;.*transcript_biotype:protein_coding</code></pre>
+<p>There are 17 matches in the file
+<code>example_protein.fasta</code>.</p>
+<p><em>Note: be careful when using <code>&gt;</code> in a regular
 expression on the command line - the <code>&gt;</code> symbol has a
 special meaning in many command line environments, and using it can
-result in accidentally wiping the content of files etc.</em> {:
-.solution } {: .challenge }</p>
-</blockquote>
-</blockquote>
+result in accidentally wiping the content of files etc.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul><li>Use the <code>\b</code> token to match a word boundary, and
+<code>^</code> and <code>$</code> to match the beginning and end of a
+line respectively.</li>
+<li>
+<code>\\</code> has special meaning in regular expressions, and
+<code>\\\\</code> should be used to specify a literal backslash in a
+pattern.</li>
+<li>
+<code>.</code> describes a position that could match any
+character.</li>
+<li>When composing a regular expression, it is good practice to be as
+specific as possible about what you want to match.</li>
+</ul></div>
+</div>
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="02-fundamentals.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>

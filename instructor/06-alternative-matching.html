@@ -363,7 +363,7 @@ with a particular character, etc - but what if we only want to match
 under a limited number of set circumstances? For an example,consider
 again the FASTA file introduced in the previous chapter, a sample of
 which is reproduced below:</p>
-<pre class="source"><code>&gt;GX3597KLM "Homo sapiens"
+<pre class="text"><code>&gt;GX3597KLM "Homo sapiens"
 MQSYASAMLSVFNSDDYSPAVQENIPALRRSSSFLCTESCNSKYQCETGENSKGNVQDRVKRPMNAFIVW
 SRDQRRKMALENPRMRNSEISKQLGYQWKMLTEAEKWPFFQEAQKLQAMHREKYPNYKYRPRRKAKMLPK
 NCSLLPADPASVLCSEVQLDNRLYRDDCTKATHSRMEHQLGHLPPINAASSPQQRDRYSHWTKL
@@ -410,10 +410,10 @@ matches in a single regular expression.</p>
 <p>A set of options for matching in a regex can be defined using the
 <code>|</code> pipe symbol. For example, to match either ‘fish’ or
 ‘whale’, we can construct the following expression:</p>
-<pre class="source"><code><span><span class="va">fish</span><span class="op">|</span><span class="va">whale</span></span></code></pre>
+<pre class="text"><code><span><span class="va">fish</span><span class="op">|</span><span class="va">whale</span></span></code></pre>
 <p>So, to match only ‘Homo sapiens’ or ‘Pan troglodytes’ in the FASTA
 file mentioned above, we can construct the regex:</p>
-<pre class="source"><code>Homo sapiens|Pan troglodytes</code></pre>
+<pre class="text"><code>Homo sapiens|Pan troglodytes</code></pre>
 <p>which we can then use with <code>grep</code> or some other program to
 get a count of the matches. You can use this approach to selectively
 extract lines from a larger file, while preserving their order relative
@@ -443,22 +443,22 @@ single reglar expression?</p>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Here are two possible solutions:</p>
-<pre class="source"><code>[Ff]irst [Ss]treet|1st [Ss]treet</code></pre>
-<pre class="source"><code>(Fir|fir|1)st [Ss]treet</code></pre>
+<pre class="text"><code>[Ff]irst [Ss]treet|1st [Ss]treet</code></pre>
+<pre class="text"><code>(Fir|fir|1)st [Ss]treet</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2a" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2</h3>
+<div id="exercise-6.2a" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2a</h3>
 <div class="callout-content">
 <p>The FASTQ file <code>example.fastq</code> contains sequence reads
 with quality scores, in the format</p>
-<pre class="source"><code>@sequence header line with barcode sequence
+<pre class="text"><code>@sequence header line with barcode sequence
 sequence
 +
 quality scores for basecalls</code></pre>
@@ -466,9 +466,8 @@ quality scores for basecalls</code></pre>
 and the barcodes are still attached to the front of the sequences. There
 are three barcodes that we are interested in: AGGCCA, TGTGAC, and
 GCTGAC.</p>
-<ol style="list-style-type: lower-alpha"><li>how many reads are there in the file for each of these
-barcodes?</li>
-</ol></div>
+<p>How many reads are there in the file for each of these barcodes?</p>
+</div>
 </div>
 </div>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
@@ -485,18 +484,17 @@ barcodes?</li>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2b" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2b" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2b</h3>
 <div class="callout-content">
-<ol start="2" style="list-style-type: lower-alpha"><li>write a regular expression that will find and these barcodes and a
+<p>Write a regular expression that will find and these barcodes and a
 replacement string that will remove from the start of the sequences in
-which they are found</li>
-</ol></div>
+which they are found</p>
+</div>
 </div>
 </div>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
@@ -506,26 +504,25 @@ which they are found</li>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)</code>
-replacement string: <code>\2</code> (<code>$2</code>)</p>
+<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)</code></p>
+<p>replacement string: <code>\2</code> (<code>$2</code>)</p>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2c" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2c" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2c</h3>
 <div class="callout-content">
-<ol start="3" style="list-style-type: lower-alpha"><li>of course, the format of the file means that you should probably
+<p>Of course, the format of the file means that you should probably
 remove the quality scores associated with those sequence positions too.
 Rewrite your regex so that the barcode sequence AND its corresponding
 quality scores (i.e. the first six characters on the sequence and
-quality lines) are removed.</li>
-</ol></div>
+quality lines) are removed.</p>
+</div>
 </div>
 </div>
 <div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
@@ -535,24 +532,23 @@ quality lines) are removed.</li>
 </button>
 <div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code>
-replacement string: <code>\2</code> (<code>$2</code>)</p>
+<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
+<p>replacement string: <code>\2</code> (<code>$2</code>)</p>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2d" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2d" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2d</h3>
 <div class="callout-content">
-<ol start="4" style="list-style-type: lower-alpha"><li>finally, can you build on the regex and replacement string from part
+<p>Finally, can you build on the regex and replacement string from part
 c), to replace the incorrect index sequences in the header lines with
-the barcodes for each relevant sequence record?</li>
-</ol></div>
+the barcodes for each relevant sequence record?</p>
+</div>
 </div>
 </div>
 <div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
@@ -563,8 +559,8 @@ the barcodes for each relevant sequence record?</li>
 <div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>regex:
-<code>^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code>
-replacement string: <code>\1\2\n\3</code></p>
+<code>^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
+<p>replacement string: <code>\1\2\n\3</code></p>
 </div>
 </div>
 </div>

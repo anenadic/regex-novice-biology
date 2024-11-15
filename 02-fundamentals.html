@@ -369,7 +369,7 @@ search.</li>
 <hr class="half-width"><p>In regular expression mode, you can still search for a literal string
 i.e. the exact letter(s)/word(s) that you want to find. So, to find the
 gene name ‘HDAC1’, you would type:</p>
-<pre class="source"><code><span><span class="va">HDAC1</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC1</span></span></code></pre>
 <p>Using your text editor, open the example file
 <code>example.gff</code> and try using the Find/Replace interface to
 search for this term. Remember to make sure that you have your searches
@@ -408,9 +408,9 @@ possible, to avoid spurious matches.</p>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To make the search less specific, remove the ‘1’ from the end</p>
-<pre class="source"><code><span><span class="va">HDAC</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC</span></span></code></pre>
 <p>Or, to be more specific and avoid any spurious matches:</p>
-<pre class="source"><code><span><span class="va">Name</span><span class="op">=</span><span class="va">HDAC</span></span></code></pre>
+<pre class="text"><code><span><span class="va">Name</span><span class="op">=</span><span class="va">HDAC</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -426,7 +426,7 @@ approach to ten, 100, etc; and it is more satisfying!</p>
 <p>In a regular expression, we can specify groups of characters to be
 matched in a certain position by placing them between sqaure brackets
 <code>[]</code>. For example,</p>
-<pre class="source"><code>[bfr]oot</code></pre>
+<pre class="text"><code>[bfr]oot</code></pre>
 <p>will match ‘boot’, ‘foot’, and ‘root’, but not ‘loot’, or ‘moot’.
 Only a single character inside the square brackets <code>[]</code> will
 be matched, so the pattern above will not match the whole of ‘froot’ or
@@ -435,21 +435,21 @@ cases, which may not be what we want. We will learn more soon about how
 to avoid these partial matches.</p>
 <p>This approach can be used to match only <code>HDAC1</code> and
 <code>HDAC2</code> in our example GFF file, with the regex below:</p>
-<pre class="source"><code><span><span class="va">HDAC</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
 <p>The set of characters specified inside <code>[]</code> can be a mix
 of letters, numbers, and symbols. So,</p>
-<pre class="source"><code>[&amp;k8Y]</code></pre>
+<pre class="text"><code>[&amp;k8Y]</code></pre>
 <p>is a valid set.</p>
 <p>What if we want to match any uppercase letter? Applying what we’ve
 learned already, we <em>could</em> use the set</p>
-<pre class="source"><code>[ABCDEFGHIJKLMNOPQRSTUVWXYZ]at</code></pre>
+<pre class="text"><code>[ABCDEFGHIJKLMNOPQRSTUVWXYZ]at</code></pre>
 <p>to match any string beginning with an upper case letter, followed by
 ‘at’ e.g. ‘Cat’, ‘Bat’, ‘Mat’, etc. But that’s a lot of typing (30
 characters to match only three in the string), and we can instead
 specify ranges of characters in <code>[]</code> with <code>-</code>. So,
 to match the same strings as before, our regex can instead look like
 this:</p>
-<pre class="source"><code>[A-Z]at</code></pre>
+<pre class="text"><code>[A-Z]at</code></pre>
 <p>Only seven characters now - that’s much better! All lower case
 letters can be matched with the set <code>[a-z]</code>, and digits with
 <code>[0-9]</code>.</p>
@@ -505,7 +505,7 @@ even emojis._</p>
 <p>Which of the following expressions could you use to match any
 four-letter word beginning with an uppercase letter, followed by two
 vowels, and ending with ‘d’?</p>
-<pre class="source"><code>	i) [upper][vowel][vowel]d
+<pre class="text"><code>	i) [upper][vowel][vowel]d
 
 	ii) [A-Z][a-u][a-u]d
 
@@ -559,17 +559,17 @@ will match any letter or digit character.</p>
 </div>
 <p>Ranges don’t have to include the whole alphabet or every digit - we
 can match only the second half of the alphabet with</p>
-<pre class="source"><code>[N-Z]</code></pre>
+<pre class="text"><code>[N-Z]</code></pre>
 <p>and only the numbers from 5 to 8 with</p>
-<pre class="source"><code>[5-8]</code></pre>
+<pre class="text"><code>[5-8]</code></pre>
 <p>We can specify multiple ranges together in the same set, so matching
 ‘a’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, or any digit can be done with</p>
-<pre class="source"><code>[a-f0-9]</code></pre>
+<pre class="text"><code>[a-f0-9]</code></pre>
 <p>But if we’re using the <code>-</code> symbol to specify a range of
 characters, how do we include the literal ‘-’ symbol in a set to be
 matched? To do this, the <code>-</code> should be specified at the start
 of the set. So</p>
-<pre class="source"><code>[-A-K]</code></pre>
+<pre class="text"><code>[-A-K]</code></pre>
 <p>will match ‘-’ as well as any uppercase letter between ‘A’ and
 ‘K’.</p>
 </section><section><h2 class="section-heading" id="inverted-sets">Inverted sets<a class="anchor" aria-label="anchor" href="#inverted-sets"></a></h2>
@@ -577,7 +577,7 @@ of the set. So</p>
 we can also specify a set or range of characters to <em>not</em> match
 in a position. This is achieved with the <code>^</code> symbol at the
 beginning of the set.</p>
-<pre class="source"><code>201[^269]</code></pre>
+<pre class="text"><code>201[^269]</code></pre>
 <p>will match ‘2010’, ‘201K’, ‘201j’, etc, but not ‘2012’, ‘2016’, or
 ‘2019’. In contrast to <code>-</code>, which is only taken literally
 when at the start of the set, <code>^</code> only takes a special
@@ -605,7 +605,7 @@ with autosomes can you find in file <code>example.gff</code>?</p>
 </button>
 <div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<pre class="source"><code>chr[^XYM]</code></pre>
+<pre class="text"><code>chr[^XYM]</code></pre>
 <p>There are 897 records matching this regular expression. In fact,
 there are only 895 lines beginning with <code>chr[^XYZ]</code>, but two
 other lines also match the regex above because they contain the string

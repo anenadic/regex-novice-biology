@@ -538,7 +538,7 @@ search.</li>
 <p>In regular expression mode, you can still search for a literal string
 i.e. the exact letter(s)/word(s) that you want to find. So, to find the
 gene name ‘HDAC1’, you would type:</p>
-<pre class="source"><code><span><span class="va">HDAC1</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC1</span></span></code></pre>
 <p>Using your text editor, open the example file
 <code>example.gff</code> and try using the Find/Replace interface to
 search for this term. Remember to make sure that you have your searches
@@ -577,9 +577,9 @@ possible, to avoid spurious matches.</p>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To make the search less specific, remove the ‘1’ from the end</p>
-<pre class="source"><code><span><span class="va">HDAC</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC</span></span></code></pre>
 <p>Or, to be more specific and avoid any spurious matches:</p>
-<pre class="source"><code><span><span class="va">Name</span><span class="op">=</span><span class="va">HDAC</span></span></code></pre>
+<pre class="text"><code><span><span class="va">Name</span><span class="op">=</span><span class="va">HDAC</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -597,7 +597,7 @@ approach to ten, 100, etc; and it is more satisfying!</p>
 <p>In a regular expression, we can specify groups of characters to be
 matched in a certain position by placing them between sqaure brackets
 <code>[]</code>. For example,</p>
-<pre class="source"><code>[bfr]oot</code></pre>
+<pre class="text"><code>[bfr]oot</code></pre>
 <p>will match ‘boot’, ‘foot’, and ‘root’, but not ‘loot’, or ‘moot’.
 Only a single character inside the square brackets <code>[]</code> will
 be matched, so the pattern above will not match the whole of ‘froot’ or
@@ -606,21 +606,21 @@ cases, which may not be what we want. We will learn more soon about how
 to avoid these partial matches.</p>
 <p>This approach can be used to match only <code>HDAC1</code> and
 <code>HDAC2</code> in our example GFF file, with the regex below:</p>
-<pre class="source"><code><span><span class="va">HDAC</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
+<pre class="text"><code><span><span class="va">HDAC</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
 <p>The set of characters specified inside <code>[]</code> can be a mix
 of letters, numbers, and symbols. So,</p>
-<pre class="source"><code>[&amp;k8Y]</code></pre>
+<pre class="text"><code>[&amp;k8Y]</code></pre>
 <p>is a valid set.</p>
 <p>What if we want to match any uppercase letter? Applying what we’ve
 learned already, we <em>could</em> use the set</p>
-<pre class="source"><code>[ABCDEFGHIJKLMNOPQRSTUVWXYZ]at</code></pre>
+<pre class="text"><code>[ABCDEFGHIJKLMNOPQRSTUVWXYZ]at</code></pre>
 <p>to match any string beginning with an upper case letter, followed by
 ‘at’ e.g. ‘Cat’, ‘Bat’, ‘Mat’, etc. But that’s a lot of typing (30
 characters to match only three in the string), and we can instead
 specify ranges of characters in <code>[]</code> with <code>-</code>. So,
 to match the same strings as before, our regex can instead look like
 this:</p>
-<pre class="source"><code>[A-Z]at</code></pre>
+<pre class="text"><code>[A-Z]at</code></pre>
 <p>Only seven characters now - that’s much better! All lower case
 letters can be matched with the set <code>[a-z]</code>, and digits with
 <code>[0-9]</code>.</p>
@@ -676,7 +676,7 @@ even emojis._</p>
 <p>Which of the following expressions could you use to match any
 four-letter word beginning with an uppercase letter, followed by two
 vowels, and ending with ‘d’?</p>
-<pre class="source"><code>	i) [upper][vowel][vowel]d
+<pre class="text"><code>	i) [upper][vowel][vowel]d
 
 	ii) [A-Z][a-u][a-u]d
 
@@ -730,17 +730,17 @@ will match any letter or digit character.</p>
 </div>
 <p>Ranges don’t have to include the whole alphabet or every digit - we
 can match only the second half of the alphabet with</p>
-<pre class="source"><code>[N-Z]</code></pre>
+<pre class="text"><code>[N-Z]</code></pre>
 <p>and only the numbers from 5 to 8 with</p>
-<pre class="source"><code>[5-8]</code></pre>
+<pre class="text"><code>[5-8]</code></pre>
 <p>We can specify multiple ranges together in the same set, so matching
 ‘a’, ‘b’, ‘c’, ‘d’, ‘e’, ‘f’, or any digit can be done with</p>
-<pre class="source"><code>[a-f0-9]</code></pre>
+<pre class="text"><code>[a-f0-9]</code></pre>
 <p>But if we’re using the <code>-</code> symbol to specify a range of
 characters, how do we include the literal ‘-’ symbol in a set to be
 matched? To do this, the <code>-</code> should be specified at the start
 of the set. So</p>
-<pre class="source"><code>[-A-K]</code></pre>
+<pre class="text"><code>[-A-K]</code></pre>
 <p>will match ‘-’ as well as any uppercase letter between ‘A’ and
 ‘K’.</p>
 </section><section><h2 class="section-heading" id="inverted-sets">Inverted sets<a class="anchor" aria-label="anchor" href="#inverted-sets"></a>
@@ -750,7 +750,7 @@ of the set. So</p>
 we can also specify a set or range of characters to <em>not</em> match
 in a position. This is achieved with the <code>^</code> symbol at the
 beginning of the set.</p>
-<pre class="source"><code>201[^269]</code></pre>
+<pre class="text"><code>201[^269]</code></pre>
 <p>will match ‘2010’, ‘201K’, ‘201j’, etc, but not ‘2012’, ‘2016’, or
 ‘2019’. In contrast to <code>-</code>, which is only taken literally
 when at the start of the set, <code>^</code> only takes a special
@@ -778,7 +778,7 @@ with autosomes can you find in file <code>example.gff</code>?</p>
 </button>
 <div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<pre class="source"><code>chr[^XYM]</code></pre>
+<pre class="text"><code>chr[^XYM]</code></pre>
 <p>There are 897 records matching this regular expression. In fact,
 there are only 895 lines beginning with <code>chr[^XYZ]</code>, but two
 other lines also match the regex above because they contain the string
@@ -816,6 +816,41 @@ the given characters should be excluded from a match.</li>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I specify that patterns should only match as whole words or
+whole lines?</li>
+<li>How can I only match patterns that appear at the very beginning or
+very end of a line?</li>
+<li>How can I specify positions in a pattern that could match any
+character?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Compose regular expressions that include tokens to match particular
+classes of character.</li>
+<li>Describe the risks associated with using tokens and wildcards that
+match many characters.</li>
+<li>Modify a regular expression to match only strings that appear at the
+start or end of a line or word.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="referencing-multiple-characters">Referencing multiple characters<a class="anchor" aria-label="anchor" href="#referencing-multiple-characters"></a>
 </h2>
 <hr class="half-width">
@@ -921,7 +956,7 @@ phone numbers. How many matches do you find?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <pre class="text"><code>\d\d\.\d\d\.\d\d\d\d</code></pre>
 <p>There are 25 matches in the file <code>person_info.csv</code> (every
@@ -945,8 +980,7 @@ boundary’, and can be used to ensure matching of whole words only. For
 example, we want to find every instance of ‘chr1’ and ‘chr2’ in the file
 <code>example.gff</code>. Using what we’ve already learned, we can
 design the regex</p>
-<pre><code><span><span class="va">chr</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
-<p>{: .source }</p>
+<pre class="text"><code><span><span class="va">chr</span><span class="op">[</span><span class="fl">12</span><span class="op">]</span></span></code></pre>
 <p>which will match either of the two target strings. However, this
 regex will also match all but the last character of ‘chr13’ and ‘chr22’,
 which is not what we want. How can we be sure that we will only match
@@ -961,34 +995,65 @@ symbols that might be used as field delimiters, periods and commas,
 newline characters, plus the special regex characters <code>^</code> and
 <code>$</code>, which refer to the beginning and end of a string
 respectively (more on these in a moment). So, by using the regex</p>
-<pre><code>\bchr[12]\b</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>\bchr[12]\b</code></pre>
 <p>we ensure that we will only get matches to ‘chr1’ and ‘chr2’ as whole
 words, regardless of whether they are flanked by spaces, symbols, or the
 beginning or end of a line.</p>
-<blockquote>
-<h2 id="exercise-3.2">Exercise 3.2</h2>
+<div id="exercise-3.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.2" class="callout-inner">
+<h3 class="callout-title">Exercise 3.2</h3>
+<div class="callout-content">
 <p>How can you refine the regex from the previous exercise to prevent
 matching strings with preceding or succeeding digits, such as
-131.01.20171? &gt; &gt; ## Solution &gt; &gt; ~~~ &gt; ~~~ &gt; {:
-.source } &gt; &gt; Note that this prevents matching strings like
-131.01.20171, but still allows non-sensical dates such as 99.99.9999. {:
-.solution } {: .challenge }</p>
-</blockquote>
-<blockquote>
-<h2 id="exercise-3.3">Exercise 3.3</h2>
+131.01.20171?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<pre class="text"><code>\b\d\d\.\d\d\.\d\d\d\d\b</code></pre>
+<p>Note that this prevents matching strings like 131.01.20171, but still
+allows non-sensical dates such as 99.99.9999.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-3.3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.3" class="callout-inner">
+<h3 class="callout-title">Exercise 3.3</h3>
+<div class="callout-content">
 <p>When designing a regular expression to match exactly four digits,
 what would be the difference between using the two regular expressions
 <code>\b\d\d\d\d\b</code> and <code>\D\d\d\d\d\D</code>?</p>
-<blockquote>
-<h2 id="solution-1">Solution</h2>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
 <p>While both regular expressions will prevent leading and succeeding
 digits, the regular expression <code>\D\d\d\d\d\D</code> won’t work if
 the four digits appear at the beginning or end of the string. That is
-because the <code>\D</code> tokens MUST match a character. {: .solution
-} {: .challenge }</p>
-</blockquote>
-</blockquote>
+because the <code>\D</code> tokens MUST match a character.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="the---wildcard">The <code>.</code> Wildcard<a class="anchor" aria-label="anchor" href="#the---wildcard"></a>
 </h2>
 <hr class="half-width">
@@ -1015,28 +1080,65 @@ begin with the ‘@’ symbol, which is also contained within the quality
 strings and other fields of the alignment lines that make up the bulk of
 the file. If we search only with <code>@</code>, we won’t be able to
 pull out only the header lines, so instead we can use the regex</p>
-<pre><code>^@</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>^@</code></pre>
 <p>to capture only the header lines. A similar approach can also be
 useful when searching for particular primer/adapter sequences in
 high-throughput DNA sequencing data.</p>
-<blockquote>
-<h2 id="exercise-3.4">Exercise 3.4</h2>
+<div id="exercise-3.4" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3.4" class="callout-inner">
+<h3 class="callout-title">Exercise 3.4</h3>
+<div class="callout-content">
 <p>Count how many sequences in <code>example_protein.fasta</code> are of
 transcript_biotype “protein_coding”. Hint: sequence records have a
 header that starts with the character “<code>&gt;</code>”.</p>
-<blockquote>
-<h2 id="solution-2">Solution</h2>
-<pre><code>^&gt;.*transcript_biotype:protein_coding</code></pre>
-<p>{: .source }</p>
-<p>There are 17 matches in the file <code>example_protein.fasta</code>.
-<em>Note: be careful when using <code>&gt;</code> in a regular
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<pre class="text"><code>^&gt;.*transcript_biotype:protein_coding</code></pre>
+<p>There are 17 matches in the file
+<code>example_protein.fasta</code>.</p>
+<p><em>Note: be careful when using <code>&gt;</code> in a regular
 expression on the command line - the <code>&gt;</code> symbol has a
 special meaning in many command line environments, and using it can
-result in accidentally wiping the content of files etc.</em> {:
-.solution } {: .challenge }</p>
-</blockquote>
-</blockquote>
+result in accidentally wiping the content of files etc.</em></p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Use the <code>\b</code> token to match a word boundary, and
+<code>^</code> and <code>$</code> to match the beginning and end of a
+line respectively.</li>
+<li>
+<code>\\</code> has special meaning in regular expressions, and
+<code>\\\\</code> should be used to specify a literal backslash in a
+pattern.</li>
+<li>
+<code>.</code> describes a position that could match any
+character.</li>
+<li>When composing a regular expression, it is good practice to be as
+specific as possible about what you want to match.</li>
+</ul>
+</div>
+</div>
+</div>
 </section></section><section id="aio-04-repeats"><p>Content from <a href="04-repeats.html">Repeated Matches</a></p>
 <hr>
 <p>Last updated on 2024-11-15 |
@@ -1140,60 +1242,70 @@ below.</p>
 <code>bo+t</code> will match ‘boot’, ‘bot’, ‘boooot’, and so on, and
 `bo*t’ will match ‘bt’, ‘bot’, ‘boot’, ‘booot’, and so on. These
 modifiers can also be applied to sets of characters, so the regex</p>
-<pre class="source"><code><span><span class="va">f</span><span class="op">[</span><span class="va">aeiou</span><span class="op">]</span><span class="op">+</span><span class="va">nd</span></span></code></pre>
+<pre class="text"><code><span><span class="va">f</span><span class="op">[</span><span class="va">aeiou</span><span class="op">]</span><span class="op">+</span><span class="va">nd</span></span></code></pre>
 <p>will match ‘find’, ‘found’, and ‘fiuoaaend’. Note that the whole
 class can be repeated, and it is not only repeats of the same character
 that match i.e. the regex</p>
-<pre class="source"><code><span><span class="va">d</span><span class="op">[</span><span class="va">efor</span><span class="op">]</span><span class="op">*</span><span class="va">med</span></span></code></pre>
+<pre class="text"><code><span><span class="va">d</span><span class="op">[</span><span class="va">efor</span><span class="op">]</span><span class="op">*</span><span class="va">med</span></span></code></pre>
 <p>will match ‘deformed’, as well as ‘dmed’, ‘doomed’, and
 ‘doooooooooooomed’. It is also important to be aware that the modifiers
 are ‘greedy’, which means that the regex engine will match as many
 characters as possible before moving on to the next character of the
 pattern.</p>
-<div id="exercise-4.1" class="callout discussion">
+<div id="exercise-4.1a" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-4.1" class="callout-inner">
-<h3 class="callout-title">Exercise 4.1</h3>
+<div id="exercise-4.1a" class="callout-inner">
+<h3 class="callout-title">Exercise 4.1a</h3>
 <div class="callout-content">
-<ol style="list-style-type: lower-alpha">
-<li>Which of the follow strings will be matched by the regular
-expression <code>MVIA*CP</code>?</li>
+<p>Which of the follow strings will be matched by the regular
+expression</p>
+<pre class="text"><code><span><span class="va">`MVIA*CP`</span></span></code></pre>
+<p>?</p>
+<ol style="list-style-type: lower-roman">
+<li>“MVIAACP”</li>
+<li>“MVICP”</li>
+<li>“MVIACP”</li>
+<li>all strings above</li>
 </ol>
-<p>`~~~ i) MVIAACP</p>
-<ol start="2" style="list-style-type: lower-roman">
-<li><p>MVICP</p></li>
-<li><p>MVIACP</p></li>
-<li><p>all of the above</p></li>
-</ol>
-<pre><code>{: .source }
-
-&gt; ## Solution
-&gt;
-&gt; __iv)__ the regex will match all of the strings i) - iii)
-&gt;
-{: .solution }
-
-b) Write a regular expression to match the string
-
-"ATGCTTTCG"
-
-and
-
-"ATCTCG"
-
-but *not*
-
-"ATGGCCG"
-
-&gt; ## Solution
-&gt;
-&gt; ~~~
-&gt; ATG?CT+CG
-&gt; ~~~
-&gt; {: .source }
-&gt; {: .solution }</code></pre>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p><strong>iv)</strong> - the regex will match all of the strings i) -
+iii).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-4.1b" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-4.1b" class="callout-inner">
+<h3 class="callout-title">Exercise 4.1b</h3>
+<div class="callout-content">
+<p>Write a regular expression to match the strings “ATGCTTTCG” and
+“ATCTCG” but <em>not</em> “ATGGCCG”.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<pre class="text"><code><span><span class="va">ATG</span><span class="op">?</span><span class="va">CT</span><span class="op">+</span><span class="va">CG</span></span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1205,15 +1317,15 @@ whether to match, zero, one, or an arbitrary multitude of a
 character/set, it is also possible to match only a certain number of
 repeats, or within a certain range of numbers of repeats, using
 <code>{}</code>.</p>
-<pre class="source"><code>GCA{3}T</code></pre>
+<pre class="text"><code>GCA{3}T</code></pre>
 <p>matches ‘GCAAAT’ only, while</p>
-<pre class="source"><code>GC[AT]{3}T</code></pre>
+<pre class="text"><code>GC[AT]{3}T</code></pre>
 <p>matches ‘GCATAT’, ‘GCTTTT’, and ‘GCTAAT’, but not ‘GCTAT’, ‘GCATT’,
 or ‘GCp)T’. As well as an exact number of repeats to match, a range can
 also be specified with <code>{n,m}</code>, where <code>n</code> is the
 minimum and <code>m</code> the maximum number of matches allowed in the
 pattern. So,</p>
-<pre class="source"><code>AG[ACGT]{4,10}GC</code></pre>
+<pre class="text"><code>AG[ACGT]{4,10}GC</code></pre>
 <p>matches any sequence between four and ten nucleotides, flanked by
 ‘AG’ on one side and ‘GC’ on the other.</p>
 </section><section><h2 class="section-heading" id="grouping">Grouping<a class="anchor" aria-label="anchor" href="#grouping"></a>
@@ -1230,9 +1342,9 @@ of characters/sets, wrap the group in <code>()</code> parentheses.</p>
 match ‘rain’ and ‘rainrain’ with the regex <code>(rain)+</code>. This
 kind of grouping with <code>()</code> is used in a few different ways,
 as we will discover in the next couple of chapters.</p>
-<div id="exercise-4.2" class="callout discussion">
+<div id="exercise-4.2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-4.2" class="callout-inner">
 <h3 class="callout-title">Exercise 4.2</h3>
@@ -1246,10 +1358,17 @@ of the leucine repeat? Try searching for any patterns with at between
 one and four leucines. What happens if you leave out the upper limit
 inside the <code>{}</code>? Or the lower limit? Can you leave out
 both?</p>
-<div class="section level2 soultion">
-<h2 id="solution">Solution<a class="anchor" aria-label="anchor" href="#solution"></a>
-</h2>
-<pre class="source"><code>WL{3}Y
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<pre class="text"><code>WL{3}Y
 WL{2}Y
 WL{1}Y
 WL{1,4}Y</code></pre>
@@ -1260,10 +1379,10 @@ WL{1,4}Y</code></pre>
 <p>Specifying only one of these limits, while retaining the comma in the
 appropriate position, allows you to control for a only an upper or lower
 limit to the number of repeats. So,</p>
-<pre class="source"><code>GC[A]{3,}GC</code></pre>
+<pre class="text"><code>GC[A]{3,}GC</code></pre>
 <p>matches ‘GCAAAGC’, ‘GCAAAAAAAAGC’, and any other string starting and
 ending with ‘GC’, with more than two ’A’s in between. Conversely,</p>
-<pre class="source"><code>GCA{,4}GC</code></pre>
+<pre class="text"><code>GCA{,4}GC</code></pre>
 <p>matches ‘GCGC’, ‘GCAGC’, ‘GCAAGC’, and so on, but won’t match
 ‘GCAAAAAAGC’ or any other combination containing a run of more than four
 ‘A’s between flanking ’GC’ substrings. This syntax, where the minimum
@@ -1302,6 +1421,33 @@ position.</li>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I reuse parts of the matched pattern when I replace it?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Compose regular expressions that include capture groups.</li>
+<li>Compose replacement strings that include characters captured in a
+regular expression.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>One of the most common uses of regular expressions is in string
 replacement, or substitution, where the patterns found will be replaced
 by some other string - this usage is similar again to the ‘Find and
@@ -1316,7 +1462,7 @@ specific pattern that will be found.</p>
 standard, literal ‘Find/Replace’ tool, consider the following example:
 you have been given a FASTA file of protein sequences in the following
 format</p>
-<pre><code>&gt;GX3597KLM "Homo sapiens"
+<pre class="text"><code>&gt;GX3597KLM "Homo sapiens"
 MQSYASAMLSVFNSDDYSPAVQENIPALRRSSSFLCTESCNSKYQCETGENSKGNVQDRVKRPMNAFIVW
 SRDQRRKMALENPRMRNSEISKQLGYQWKMLTEAEKWPFFQEAQKLQAMHREKYPNYKYRPRRKAKMLPK
 NCSLLPADPASVLCSEVQLDNRLYRDDCTKATHSRMEHQLGHLPPINAASSPQQRDRYSHWTKL
@@ -1350,9 +1496,7 @@ VRNIDLVAQRGERLELLIDKTENLVDSSVTFKTTSRNLARAMCMKNLKLTIIIIIVSIVFIYIIVSPLCG
 GFTWPSCVKK
 
 &gt;GK3141YRK "Pan troglodytes"
-[ many more records follow... ]
-</code></pre>
-<p>{: .source }</p>
+[ many more records follow... ]</code></pre>
 <p>In the sequence header lines (the lines starting with ‘&gt;’), you
 have what looks like a unique identifier as the sequence ID string, and
 some additional information about species in the description. These are
@@ -1368,8 +1512,7 @@ string with underscores. This should make sure that all relevant
 information will be retained in any further processing steps.</p>
 <p>We can match the species name in each header line, with the following
 regex:</p>
-<pre><code>[A-Z][a-z]+ [a-z]+</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>[A-Z][a-z]+ [a-z]+</code></pre>
 <p>which is a good start. But, now we need to consider how to make sure
 that we keep these species names during the replacement. In a standard
 “Find/Replace” operation, as well as specifying exactly the text that we
@@ -1390,13 +1533,12 @@ groups can be referred to in the replacement string with
 which group in the regex should be substituted in at the specified
 position. Captured groups are counted from left to right. This should be
 made clearer with an example below:</p>
-<pre><code>group_1, group_2, group_3</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>group_1, group_2, group_3</code></pre>
 <p>In this case, we want to rearrange the parts of the string above, so
 that we have ‘group 3’ first, followed by ‘group_1’ twice, and then
 ‘group_2’. Using what we’ve already learned, we can match each ‘group_x’
 substring with the one of the regexes below</p>
-<pre><code>group_\d
+<pre class="text"><code>group_\d
 
 # or
 
@@ -1405,28 +1547,27 @@ group_[123]
 # or
 
 group_[0-9]</code></pre>
-<p>{: .source }</p>
 <p>so we could match the whole string as follows:</p>
-<pre><code>group_\d, group_\d, group_\d</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>group_\d, group_\d, group_\d</code></pre>
 <p>However, in order to rearrange the parts in a replacement string, we
 need to capture them individually with <code>()</code> parentheses.
 Using the following regex:</p>
-<pre><code>(group_\d), (group_\d), (group_\d)</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>(group_\d), (group_\d), (group_\d)</code></pre>
 <p>we could create a rearranged replacement string with</p>
-<pre><code>\3, \1, \1, \2
+<pre class="text"><code>\3, \1, \1, \2
 
 # returns "group_3, group_1, group_1, group_2"</code></pre>
-<p>{: .source }</p>
 <p>or, to wrap each group in quotation marks:</p>
-<pre><code>"\1", "\2", "\3"
+<pre class="text"><code>"\1", "\2", "\3"
 
 # returns "group_1", "group_2", "group_3"</code></pre>
-<p>{: .source }</p>
-<blockquote>
-<h2 id="a-note-about-capture-group-references">A Note About Capture
-Group References</h2>
+<div id="a-note-about-capture-group-references" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="a-note-about-capture-group-references" class="callout-inner">
+<h3 class="callout-title">A Note About Capture Group References</h3>
+<div class="callout-content">
 <p>Here we are using the <code>\1</code>, <code>\2</code> notation for
 referencing captured groups, but you will often see <code>$1</code>,
 <code>$2</code> etc used instead. This is the case when using regular
@@ -1435,8 +1576,10 @@ different tokens and wildcards used for regexes in different
 environments - it can easily trip you up. You should always try out a
 regex replacement before running it on any large volume of data/text,
 and make sure that you have a backup so that you can easily revert any
-unintended changes! {: .callout }</p>
-</blockquote>
+unintended changes!</p>
+</div>
+</div>
+</div>
 <p>Using this approach, you can capture up to nine different groups and
 re-use as many of them as you like in your replacement string. This is
 really helpful when reformatting large files e.g. to remove additional
@@ -1446,77 +1589,116 @@ the beginning of this section. How can we use capture groups to reach
 our aim of attaching the species names to the sequence IDs, removing the
 quotation marks along the way? First, we should identify the groups that
 we need to capture in the regex matching the species names:</p>
-<pre><code>[A-Z][a-z]+ [a-z]+ # matches the species names
+<pre class="text"><code>[A-Z][a-z]+ [a-z]+ # matches the species names
 
 ([A-Z][a-z]+) ([a-z]+) # captures genus &amp; species separately as \1 and \2</code></pre>
-<p>{: .source }</p>
 <p>Great, but now we need to add the quotation marks and leading space
 to our regex, so that we can remove/replace them when performing the
 substitution for each matched line. Adding this punctuation to the
 regex, gives us:</p>
-<pre><code>\s"([A-Z][a-z]+) ([a-z]+)"</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>\s"([A-Z][a-z]+) ([a-z]+)"</code></pre>
 <p>Note, that we don’t need to reuse the punctuation during replacement,
 so we haven’t wrapped them in <code>()</code> parentheses. Now we can
 define our replacement string to add underscores before and in between
 the genus and species names:</p>
-<pre><code>_\1_\2</code></pre>
-<p>{: .source }</p>
+<pre class="text"><code>_\1_\2</code></pre>
 <p>Using this pair of regex and replacement string should convert the
 headers from the FASTA snippet above:</p>
-<pre><code>&gt;GX3597KLM "Homo sapiens"
+<pre class="text"><code>&gt;GX3597KLM "Homo sapiens"
 &gt;GK9113FGH "Homo sapiens"
 &gt;GF7745PUP "Mus musculus"
 &gt;GD8332BAG "Homo sapiens"
 &gt;GK3091TFB "Mus musculus"
 &gt;GK3141YRK "Pan troglodytes"</code></pre>
-<p>{: .source }</p>
 <p>to the desired format:</p>
-<pre><code>&gt;GX3597KLM_Homo_sapiens
+<pre class="text"><code>&gt;GX3597KLM_Homo_sapiens
 &gt;GK9113FGH_Homo_sapiens
 &gt;GF7745PUP_Mus_musculus
 &gt;GD8332BAG_Homo_sapiens
 &gt;GK3091TFB_Mus_musculus
 &gt;GK3141YRK_Pan_troglodytes</code></pre>
-<p>{: .source }</p>
-<blockquote>
-<h2 id="exercise-5.1">Exercise 5.1</h2>
+<div id="exercise-5.1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-5.1" class="callout-inner">
+<h3 class="callout-title">Exercise 5.1</h3>
+<div class="callout-content">
 <p>The file <code>example_protein_malformed.fasta</code> is missing the
 <code>&gt;</code> character at the beginning of the headers. Use a
 capture group to add them.</p>
-<blockquote>
-<h2 id="solution">Solution</h2>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
 <p>Use the regex <code>^(ENSP\d.+)</code> and substitute with
 <code>&gt;\1</code>.</p>
 <p>Note that we explicitly match a digit character <code>\d</code>. This
-is because E, N, S and P are all character of the amino acid alphabet
-and thus <code>ENSP</code> can wrongly match protein sequences. {:
-.challenge }</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<h2 id="exercise-5.2">Exercise 5.2</h2>
+is because E, N, S and P are all characters of the amino acid alphabet
+and thus <code>ENSP</code> can wrongly match protein sequences.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exercise-5.2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-5.2" class="callout-inner">
+<h3 class="callout-title">Exercise 5.2</h3>
+<div class="callout-content">
 <p>The file <code>file_paths.txt</code> contains file paths of image
 files. The files are organised by folders based on vacations, but the
 files themselves have cryptic names. You want the files to be prefixed
 by the vacation and move them into a shared folder. At the end the list
 should look like:</p>
-<pre><code>/Users/Jane/shared/vacation-pics/France-2015-IMG-06650.jpg
+<pre class="text"><code>/Users/Jane/shared/vacation-pics/France-2015-IMG-06650.jpg
 /Users/Jane/shared/vacation-pics/France-2015-IMG-06651.jpg
 ...
 /Users/Jane/shared/vacation-pics/France-2017-IMG-08449.jpg
 ...
 /Users/Jane/shared/vacation-pics/Greece-2016-IMG-07895.jpg
 ...</code></pre>
-<p>{: .source }</p>
 <p>Use a capture group to transform the file paths accordingly.</p>
-<blockquote>
-<h2 id="solution-1">Solution</h2>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
 <p>Use the regex <code>Pictures\/(France-2015)\/</code> and substitute
-with <code>shared/vacation-pics/\1-</code>. {: .solution } {: .challenge
-}</p>
-</blockquote>
-</blockquote></section><section id="aio-06-alternative-matching"><p>Content from <a href="06-alternative-matching.html">Alternative Matches</a></p>
+with <code>shared/vacation-pics/\1-</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Capture groups are defined within <code>()</code> in a regular
+expression.</li>
+<li>The left-most capture group in a regular expression is referred to
+with <code>\\1</code> in the replacement string, the next with
+<code>\\2</code>, and so on.</li>
+</ul>
+</div>
+</div>
+</div></section><section id="aio-06-alternative-matching"><p>Content from <a href="06-alternative-matching.html">Alternative Matches</a></p>
 <hr>
 <p>Last updated on 2024-11-15 |
 
@@ -1558,7 +1740,7 @@ with a particular character, etc - but what if we only want to match
 under a limited number of set circumstances? For an example,consider
 again the FASTA file introduced in the previous chapter, a sample of
 which is reproduced below:</p>
-<pre class="source"><code>&gt;GX3597KLM "Homo sapiens"
+<pre class="text"><code>&gt;GX3597KLM "Homo sapiens"
 MQSYASAMLSVFNSDDYSPAVQENIPALRRSSSFLCTESCNSKYQCETGENSKGNVQDRVKRPMNAFIVW
 SRDQRRKMALENPRMRNSEISKQLGYQWKMLTEAEKWPFFQEAQKLQAMHREKYPNYKYRPRRKAKMLPK
 NCSLLPADPASVLCSEVQLDNRLYRDDCTKATHSRMEHQLGHLPPINAASSPQQRDRYSHWTKL
@@ -1605,10 +1787,10 @@ matches in a single regular expression.</p>
 <p>A set of options for matching in a regex can be defined using the
 <code>|</code> pipe symbol. For example, to match either ‘fish’ or
 ‘whale’, we can construct the following expression:</p>
-<pre class="source"><code><span><span class="va">fish</span><span class="op">|</span><span class="va">whale</span></span></code></pre>
+<pre class="text"><code><span><span class="va">fish</span><span class="op">|</span><span class="va">whale</span></span></code></pre>
 <p>So, to match only ‘Homo sapiens’ or ‘Pan troglodytes’ in the FASTA
 file mentioned above, we can construct the regex:</p>
-<pre class="source"><code>Homo sapiens|Pan troglodytes</code></pre>
+<pre class="text"><code>Homo sapiens|Pan troglodytes</code></pre>
 <p>which we can then use with <code>grep</code> or some other program to
 get a count of the matches. You can use this approach to selectively
 extract lines from a larger file, while preserving their order relative
@@ -1638,22 +1820,22 @@ single reglar expression?</p>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Here are two possible solutions:</p>
-<pre class="source"><code>[Ff]irst [Ss]treet|1st [Ss]treet</code></pre>
-<pre class="source"><code>(Fir|fir|1)st [Ss]treet</code></pre>
+<pre class="text"><code>[Ff]irst [Ss]treet|1st [Ss]treet</code></pre>
+<pre class="text"><code>(Fir|fir|1)st [Ss]treet</code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2a" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2</h3>
+<div id="exercise-6.2a" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2a</h3>
 <div class="callout-content">
 <p>The FASTQ file <code>example.fastq</code> contains sequence reads
 with quality scores, in the format</p>
-<pre class="source"><code>@sequence header line with barcode sequence
+<pre class="text"><code>@sequence header line with barcode sequence
 sequence
 +
 quality scores for basecalls</code></pre>
@@ -1661,10 +1843,7 @@ quality scores for basecalls</code></pre>
 and the barcodes are still attached to the front of the sequences. There
 are three barcodes that we are interested in: AGGCCA, TGTGAC, and
 GCTGAC.</p>
-<ol style="list-style-type: lower-alpha">
-<li>how many reads are there in the file for each of these
-barcodes?</li>
-</ol>
+<p>How many reads are there in the file for each of these barcodes?</p>
 </div>
 </div>
 </div>
@@ -1682,19 +1861,16 @@ barcodes?</li>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2b" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2b" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2b</h3>
 <div class="callout-content">
-<ol start="2" style="list-style-type: lower-alpha">
-<li>write a regular expression that will find and these barcodes and a
+<p>Write a regular expression that will find and these barcodes and a
 replacement string that will remove from the start of the sequences in
-which they are found</li>
-</ol>
+which they are found</p>
 </div>
 </div>
 </div>
@@ -1705,27 +1881,24 @@ which they are found</li>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)</code>
-replacement string: <code>\2</code> (<code>$2</code>)</p>
+<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)</code></p>
+<p>replacement string: <code>\2</code> (<code>$2</code>)</p>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2c" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2c" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2c</h3>
 <div class="callout-content">
-<ol start="3" style="list-style-type: lower-alpha">
-<li>of course, the format of the file means that you should probably
+<p>Of course, the format of the file means that you should probably
 remove the quality scores associated with those sequence positions too.
 Rewrite your regex so that the barcode sequence AND its corresponding
 quality scores (i.e. the first six characters on the sequence and
-quality lines) are removed.</li>
-</ol>
+quality lines) are removed.</p>
 </div>
 </div>
 </div>
@@ -1736,25 +1909,22 @@ quality lines) are removed.</li>
 </button>
 <div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code>
-replacement string: <code>\2</code> (<code>$2</code>)</p>
+<p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
+<p>replacement string: <code>\2</code> (<code>$2</code>)</p>
 </div>
 </div>
 </div>
 </div>
-<div id="exercise-6.2" class="callout challenge">
+<div id="exercise-6.2d" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-6.2" class="callout-inner">
-<h3 class="callout-title">Exercise 6.2<em> (continued)</em>
-</h3>
+<div id="exercise-6.2d" class="callout-inner">
+<h3 class="callout-title">Exercise 6.2d</h3>
 <div class="callout-content">
-<ol start="4" style="list-style-type: lower-alpha">
-<li>finally, can you build on the regex and replacement string from part
+<p>Finally, can you build on the regex and replacement string from part
 c), to replace the incorrect index sequences in the header lines with
-the barcodes for each relevant sequence record?</li>
-</ol>
+the barcodes for each relevant sequence record?</p>
 </div>
 </div>
 </div>
@@ -1766,8 +1936,8 @@ the barcodes for each relevant sequence record?</li>
 <div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>regex:
-<code>^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code>
-replacement string: <code>\1\2\n\3</code></p>
+<code>^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
+<p>replacement string: <code>\1\2\n\3</code></p>
 </div>
 </div>
 </div>
