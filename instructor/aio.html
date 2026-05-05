@@ -575,7 +575,7 @@ possible, to avoid spurious matches.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To make the search less specific, remove the ‘1’ from the end</p>
 <pre class="text"><code><span><span class="va">HDAC</span></span></code></pre>
@@ -662,7 +662,7 @@ even emojis._</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>82 (using the regex <code>Name=HDAC[1-5][^0-9]</code>)</p>
 </div>
@@ -695,7 +695,7 @@ vowels, and ending with ‘d’?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Option iii) fits the description. You might also have chosen option
 ii), which would match the described pattern, but also other non-vowel
@@ -724,7 +724,7 @@ number characters?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p><code>[A-z]</code> matches all letter characters (both upper and
 lower case). <code>[a-Z]</code> is an invalid set. <code>[A-9]</code>
@@ -782,7 +782,7 @@ with autosomes can you find in file <code>example.gff</code>?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <pre class="text"><code>chr[^XYM]</code></pre>
 <p>There are 897 records matching this regular expression. In fact,
@@ -878,44 +878,44 @@ tokens available for use in regex.</p>
 <col width="72%">
 <col width="20%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Token</th>
 <th>Matches</th>
 <th>Set Equivalent</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>\d</code></td>
 <td>Any digit</td>
 <td><code>[0-9]</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>\s</code></td>
 <td>Any whitespace character (space, tab, newlines)</td>
 <td><code>[ \t\n\r\f]</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>\w</code></td>
 <td>Any ‘word character’ - letters, numbers, and underscore</td>
 <td><code>[A-Za-z0-9_]</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>\b</code></td>
 <td>A word boundary character</td>
 <td>no equivalent</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>\D</code></td>
 <td>The inverse of <code>\d</code> i.e. any character except a
 digit</td>
 <td><code>[^0-9]</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>\S</code></td>
 <td>Any non-whitespace character</td>
 <td><code>[^ \t\n\r\f]</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>\W</code></td>
 <td>Any non-word character</td>
 <td><code>[^A-Za-z0-9_]</code></td>
@@ -964,7 +964,7 @@ phone numbers. How many matches do you find?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <pre class="text"><code>\d\d\.\d\d\.\d\d\d\d</code></pre>
 <p>There are 25 matches in the file <code>person_info.csv</code> (every
@@ -1026,7 +1026,7 @@ matching strings with preceding or succeeding digits, such as
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre class="text"><code>\b\d\d\.\d\d\.\d\d\d\d\b</code></pre>
 <p>Note that this prevents matching strings like 131.01.20171, but still
@@ -1054,7 +1054,7 @@ what would be the difference between using the two regular expressions
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>While both regular expressions will prevent leading and succeeding
 digits, the regular expression <code>\D\d\d\d\d\D</code> won’t work if
@@ -1113,7 +1113,7 @@ header that starts with the character “<code>&gt;</code>”.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <pre class="text"><code>^&gt;.*transcript_biotype:protein_coding</code></pre>
 <p>There are 17 matches in the file
@@ -1219,7 +1219,7 @@ below.</p>
 <col width="10%">
 <col width="16%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Symbol</th>
 <th>Behaviour</th>
 <th>Example</th>
@@ -1227,21 +1227,21 @@ below.</p>
 <th>Doesn’t Match</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>+</code></td>
 <td>Match one or more of preceding character/set</td>
 <td><code>AGC+T</code></td>
 <td>AGCCCT</td>
 <td>AGT</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>?</code></td>
 <td>Match zero or one of preceding character/set</td>
 <td><code>AGC?T</code></td>
 <td>AGT</td>
 <td>AGCCT</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>*</code></td>
 <td>Match zero or more of preceding character/set</td>
 <td><code>AGC*T</code></td>
@@ -1290,7 +1290,7 @@ expression</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p><strong>iv)</strong> - the regex will match all of the strings i) -
 iii).</p>
@@ -1316,7 +1316,7 @@ iii).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <pre class="text"><code><span><span class="va">ATG</span><span class="op">?</span><span class="va">CT</span><span class="op">+</span><span class="va">CG</span></span></code></pre>
 </div>
@@ -1381,7 +1381,7 @@ both?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <pre class="text"><code>WL{3}Y
 WL{2}Y
@@ -2030,8 +2030,8 @@ the barcodes for each relevant sequence record?</p>
   "url": "https://carpentries-incubator.github.io/regex-novice-biology/instructor/aio.html",
   "identifier": "https://carpentries-incubator.github.io/regex-novice-biology/instructor/aio.html",
   "dateCreated": "2020-05-25",
-  "dateModified": "2026-04-28",
-  "datePublished": "2026-04-28"
+  "dateModified": "2026-05-05",
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
