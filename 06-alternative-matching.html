@@ -432,7 +432,7 @@ single reglar expression?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Here are two possible solutions:</p>
 <pre class="text"><code>[Ff]irst [Ss]treet|1st [Ss]treet</code></pre>
@@ -468,7 +468,7 @@ GCTGAC.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>AGGCCA: 25</p>
 <p>TGTGAC: 29</p>
@@ -496,7 +496,7 @@ which they are found</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n)</code></p>
 <p>replacement string: <code>\2</code> (<code>$2</code>)</p>
@@ -525,7 +525,7 @@ quality lines) are removed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>regex: <code>^(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
 <p>replacement string: <code>\2</code> (<code>$2</code>)</p>
@@ -552,7 +552,7 @@ the barcodes for each relevant sequence record?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>regex:
 <code>^(@VFI-SQ316.+:)GCGCTG\n(AGGCCA|TGTGAC|GCTGAC)([ACGTN]+\n\+\n).{6}</code></p>
@@ -637,7 +637,7 @@ the barcodes for each relevant sequence record?</p>
   "identifier": "https://carpentries-incubator.github.io/regex-novice-biology/06-alternative-matching.html",
   "dateCreated": "2020-05-25",
   "dateModified": "2024-11-15",
-  "datePublished": "2026-06-16"
+  "datePublished": "2026-06-23"
 }
 
   </script><script>
